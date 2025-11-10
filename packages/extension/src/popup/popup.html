@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Search Router</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔀 AI Search Router</h1>
+    </header>
+    
+    <main>
+      <div class="status-section">
+        <div class="status-row">
+          <span class="label">Status:</span>
+          <label class="switch">
+            <input type="checkbox" id="enabled-toggle">
+            <span class="slider"></span>
+          </label>
+          <span id="status-text" class="status-text">Enabled</span>
+        </div>
+      </div>
+
+      <div class="providers-section">
+        <div class="provider-item">
+          <div class="provider-icon">🤖</div>
+          <div class="provider-info">
+            <div class="provider-label">AI Search</div>
+            <div id="ai-provider-name" class="provider-name">Loading...</div>
+          </div>
+        </div>
+
+        <div class="provider-item">
+          <div class="provider-icon">🔍</div>
+          <div class="provider-info">
+            <div class="provider-label">Traditional Search</div>
+            <div id="serp-provider-name" class="provider-name">Loading...</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions-section">
+        <button id="settings-button" class="settings-button">
+          ⚙️ Settings
+        </button>
+      </div>
+    </main>
+
+    <footer>
+      <p>Routes questions to AI, facts to search</p>
+    </footer>
+  </div>
+
+  <script src="popup.js" type="module"></script>
+</body>
+</html>
+

@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "AI Search Router",
+  "version": "0.1.0",
+  "description": "Intelligently routes searches to AI or traditional search engines",
+  "icons": {
+    "16": "icons/icon-16.svg",
+    "48": "icons/icon-48.svg",
+    "128": "icons/icon-128.svg"
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "webNavigation",
+    "webRequest",
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess"
+  ],
+  "host_permissions": [
+    "*://www.google.com/*",
+    "*://www.perplexity.ai/*",
+    "*://chat.openai.com/*",
+    "*://kagi.com/*",
+    "*://www.qwant.com/*",
+    "*://duckduckgo.com/*",
+    "*://www.bing.com/*",
+    "*://search.yahoo.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.svg",
+      "48": "icons/icon-48.svg",
+      "128": "icons/icon-128.svg"
+    }
+  },
+  "options_page": "options/options.html"
+}
+

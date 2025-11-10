@@ -1,0 +1,27 @@
+{
+  "name": "@ai-search-router/extension",
+  "version": "0.1.0",
+  "description": "Browser extension for AI Search Router",
+  "type": "module",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js --watch",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "browser-extension",
+    "chrome-extension",
+    "safari-extension"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@ai-search-router/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.256",
+    "esbuild": "^0.19.11",
+    "typescript": "^5.3.3"
+  }
+}
+
