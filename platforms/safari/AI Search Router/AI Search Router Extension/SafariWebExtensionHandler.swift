@@ -2,7 +2,7 @@
 //  SafariWebExtensionHandler.swift
 //  AI Search Router Extension
 //
-//  Created by Marko Mitranic on 08/11/2025.
+//  Created by Marko Mitranic on 12/11/2025.
 //
 
 import SafariServices

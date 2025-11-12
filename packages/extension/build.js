@@ -43,6 +43,7 @@ if (isWatch) {
 // Copy static files
 const staticFiles = [
   'manifest.json',
+  'src/background.html',
   'src/popup/popup.html',
   'src/popup/popup.css',
   'src/options/options.html',

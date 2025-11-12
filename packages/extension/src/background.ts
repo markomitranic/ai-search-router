@@ -21,6 +21,33 @@ const DEFAULT_PREFERENCES: UserPreferences = {
 const redirectedTabs = new Map<number, string>();
 
 /**
+ * Basic runtime browser detection (Safari vs Chromium)
+ */
+function isSafari(): boolean {
+  const ua = navigator.userAgent;
+  return ua.includes('Safari') && !ua.includes('Chrome') && !ua.includes('Chromium');
+}
+
+/**
+ * Safari-specific heuristic: treat Google searches with client=safari
+ * as omnibox/address bar searches.
+ */
+function isSafariAddressBarSearch(url: string): boolean {
+  try {
+    const u = new URL(url);
+    if (u.hostname.includes('google.com') && u.pathname.includes('/search')) {
+      const client = u.searchParams.get('client');
+      if (client && client.toLowerCase() === 'safari') {
+        return true;
+      }
+    }
+  } catch {
+    // ignore
+  }
+  return false;
+}
+
+/**
  * Get user preferences from storage
  */
 async function getPreferences(): Promise<UserPreferences> {
@@ -79,8 +106,11 @@ function isSearchUrl(url: string): boolean {
  * Check if this navigation should be intercepted
  */
 function shouldIntercept(url: string, tabId: number): boolean {
-  // Don't intercept chrome:// URLs
-  if (url.startsWith('chrome://') || url.startsWith('chrome-extension://')) {
+  // Don't intercept browser internal URLs
+  if (url.startsWith('chrome://') || 
+      url.startsWith('chrome-extension://') ||
+      url.startsWith('safari-extension://') ||
+      url.startsWith('about:')) {
     return false;
   }
 
@@ -119,6 +149,13 @@ chrome.webNavigation.onCommitted.addListener(async (details) => {
   }
 
   const { url, tabId, transitionType, transitionQualifiers } = details;
+  
+  // Debug: Log ALL navigations
+  console.log('[AI Search Router] Navigation detected:', {
+    url,
+    transitionType,
+    transitionQualifiers
+  });
 
   // CRITICAL: Only intercept address bar searches
   // - 'typed': User typed in address bar
@@ -127,8 +164,15 @@ chrome.webNavigation.onCommitted.addListener(async (details) => {
   // - 'link': User clicked a link (including Google tabs like Images, Videos, etc.)
   // - 'form_submit': User submitted a form (including Google's search box)
   // - 'reload', 'auto_bookmark', etc.
-  if (transitionType !== 'typed' && transitionType !== 'generated') {
-    return;
+  if (!isSafari()) {
+    if (transitionType !== 'typed' && transitionType !== 'generated') {
+      return;
+    }
+  } else {
+    // Safari does not provide transitionType; conservatively allow only Google omnibox searches.
+    if (!isSafariAddressBarSearch(url)) {
+      return;
+    }
   }
 
   // Also exclude forward/back button navigation

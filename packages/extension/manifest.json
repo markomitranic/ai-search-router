@@ -16,19 +16,9 @@
     "declarativeNetRequest",
     "declarativeNetRequestWithHostAccess"
   ],
-  "host_permissions": [
-    "*://www.google.com/*",
-    "*://www.perplexity.ai/*",
-    "*://chat.openai.com/*",
-    "*://kagi.com/*",
-    "*://www.qwant.com/*",
-    "*://duckduckgo.com/*",
-    "*://www.bing.com/*",
-    "*://search.yahoo.com/*"
-  ],
+  "host_permissions": ["<all_urls>"],
   "background": {
-    "service_worker": "background.js",
-    "type": "module"
+    "service_worker": "background.js"
   },
   "action": {
     "default_popup": "popup/popup.html",
@@ -40,4 +30,3 @@
   },
   "options_page": "options/options.html"
 }
-

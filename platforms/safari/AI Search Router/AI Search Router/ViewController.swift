@@ -2,14 +2,14 @@
 //  ViewController.swift
 //  AI Search Router
 //
-//  Created by Marko Mitranic on 08/11/2025.
+//  Created by Marko Mitranic on 12/11/2025.
 //
 
 import Cocoa
 import SafariServices
 import WebKit
 
-let extensionBundleIdentifier = "com.aisearchrouter.extension.Extension"
+let extensionBundleIdentifier = "com.aisearchrouter.AI-Search-Router.Extension"
 
 class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
@@ -49,6 +49,9 @@ class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHan
 
         SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionBundleIdentifier) { error in
             DispatchQueue.main.async {
+				if let error = error {
+					NSAlert(error: error).runModal()
+				}
                 NSApplication.shared.terminate(nil)
             }
         }

@@ -7,42 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E083BF12EBFA86000ED3DEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E083BF02EBFA86000ED3DEC /* AppDelegate.swift */; };
-		2E083BF52EBFA86000ED3DEC /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 2E083BF32EBFA86000ED3DEC /* Main.html */; };
-		2E083BF72EBFA86000ED3DEC /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E083BF62EBFA86000ED3DEC /* Icon.png */; };
-		2E083BF92EBFA86000ED3DEC /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 2E083BF82EBFA86000ED3DEC /* Style.css */; };
-		2E083BFB2EBFA86000ED3DEC /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 2E083BFA2EBFA86000ED3DEC /* Script.js */; };
-		2E083BFD2EBFA86000ED3DEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E083BFC2EBFA86000ED3DEC /* ViewController.swift */; };
-		2E083C002EBFA86000ED3DEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E083BFE2EBFA86000ED3DEC /* Main.storyboard */; };
-		2E083C022EBFA86100ED3DEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E083C012EBFA86100ED3DEC /* Assets.xcassets */; };
-		2E083C092EBFA86100ED3DEC /* AI Search Router Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2E083C082EBFA86100ED3DEC /* AI Search Router Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2E083C0E2EBFA86100ED3DEC /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E083C0D2EBFA86100ED3DEC /* SafariWebExtensionHandler.swift */; };
-		2E083C202EBFA86100ED3DEC /* options in Resources */ = {isa = PBXBuildFile; fileRef = 2E083C1A2EBFA86100ED3DEC /* options */; };
-		2E083C212EBFA86100ED3DEC /* popup in Resources */ = {isa = PBXBuildFile; fileRef = 2E083C1B2EBFA86100ED3DEC /* popup */; };
-		2E083C222EBFA86100ED3DEC /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 2E083C1C2EBFA86100ED3DEC /* background.js */; };
-		2E083C232EBFA86100ED3DEC /* newtab in Resources */ = {isa = PBXBuildFile; fileRef = 2E083C1D2EBFA86100ED3DEC /* newtab */; };
-		2E083C242EBFA86100ED3DEC /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 2E083C1E2EBFA86100ED3DEC /* icons */; };
-		2E083C252EBFA86100ED3DEC /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E083C1F2EBFA86100ED3DEC /* manifest.json */; };
+		2E248B832EC539F20090DF84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E248B822EC539F20090DF84 /* AppDelegate.swift */; };
+		2E248B872EC539F20090DF84 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 2E248B852EC539F20090DF84 /* Main.html */; };
+		2E248B892EC539F20090DF84 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E248B882EC539F20090DF84 /* Icon.png */; };
+		2E248B8B2EC539F20090DF84 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 2E248B8A2EC539F20090DF84 /* Style.css */; };
+		2E248B8D2EC539F20090DF84 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 2E248B8C2EC539F20090DF84 /* Script.js */; };
+		2E248B8F2EC539F20090DF84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E248B8E2EC539F20090DF84 /* ViewController.swift */; };
+		2E248B922EC539F20090DF84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E248B902EC539F20090DF84 /* Main.storyboard */; };
+		2E248B942EC539F30090DF84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E248B932EC539F30090DF84 /* Assets.xcassets */; };
+		2E248B9B2EC539F30090DF84 /* AI Search Router Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2E248B9A2EC539F30090DF84 /* AI Search Router Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2E248BA02EC539F30090DF84 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E248B9F2EC539F30090DF84 /* SafariWebExtensionHandler.swift */; };
+		2E248BB12EC539F30090DF84 /* options in Resources */ = {isa = PBXBuildFile; fileRef = 2E248BAC2EC539F30090DF84 /* options */; };
+		2E248BB22EC539F30090DF84 /* popup in Resources */ = {isa = PBXBuildFile; fileRef = 2E248BAD2EC539F30090DF84 /* popup */; };
+		2E248BB32EC539F30090DF84 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 2E248BAE2EC539F30090DF84 /* background.js */; };
+		2E248BB62EC539F30090DF84 /* background.html in Resources */ = {isa = PBXBuildFile; fileRef = 2E248BC12EC539F30090DF84 /* background.html */; };
+		2E248BB42EC539F30090DF84 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 2E248BAF2EC539F30090DF84 /* icons */; };
+		2E248BB52EC539F30090DF84 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E248BB02EC539F30090DF84 /* manifest.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2E083C0A2EBFA86100ED3DEC /* PBXContainerItemProxy */ = {
+		2E248B9C2EC539F30090DF84 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2E083BE52EBFA85F00ED3DEC /* Project object */;
+			containerPortal = 2E248B772EC539F10090DF84 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2E083C072EBFA86100ED3DEC;
+			remoteGlobalIDString = 2E248B992EC539F30090DF84;
 			remoteInfo = "AI Search Router Extension";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		2E083C152EBFA86100ED3DEC /* Embed Foundation Extensions */ = {
+		2E248BA72EC539F30090DF84 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				2E083C092EBFA86100ED3DEC /* AI Search Router Extension.appex in Embed Foundation Extensions */,
+				2E248B9B2EC539F30090DF84 /* AI Search Router Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,36 +50,36 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2E083BED2EBFA86000ED3DEC /* AI Search Router.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AI Search Router.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E083BF02EBFA86000ED3DEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2E083BF42EBFA86000ED3DEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
-		2E083BF62EBFA86000ED3DEC /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		2E083BF82EBFA86000ED3DEC /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
-		2E083BFA2EBFA86000ED3DEC /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
-		2E083BFC2EBFA86000ED3DEC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2E083BFF2EBFA86000ED3DEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2E083C012EBFA86100ED3DEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2E083C032EBFA86100ED3DEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2E083C082EBFA86100ED3DEC /* AI Search Router Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AI Search Router Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E083C0D2EBFA86100ED3DEC /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
-		2E083C0F2EBFA86100ED3DEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2E083C1A2EBFA86100ED3DEC /* options */ = {isa = PBXFileReference; lastKnownFileType = folder; name = options; path = ../../../../packages/extension/dist/options; sourceTree = "<group>"; };
-		2E083C1B2EBFA86100ED3DEC /* popup */ = {isa = PBXFileReference; lastKnownFileType = folder; name = popup; path = ../../../../packages/extension/dist/popup; sourceTree = "<group>"; };
-		2E083C1C2EBFA86100ED3DEC /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = ../../../../packages/extension/dist/background.js; sourceTree = "<group>"; };
-		2E083C1D2EBFA86100ED3DEC /* newtab */ = {isa = PBXFileReference; lastKnownFileType = folder; name = newtab; path = ../../../../packages/extension/dist/newtab; sourceTree = "<group>"; };
-		2E083C1E2EBFA86100ED3DEC /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = ../../../../packages/extension/dist/icons; sourceTree = "<group>"; };
-		2E083C1F2EBFA86100ED3DEC /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../../packages/extension/dist/manifest.json; sourceTree = "<group>"; };
+		2E248B7F2EC539F10090DF84 /* AI Search Router.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AI Search Router.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E248B822EC539F20090DF84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2E248B862EC539F20090DF84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		2E248B882EC539F20090DF84 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		2E248B8A2EC539F20090DF84 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		2E248B8C2EC539F20090DF84 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		2E248B8E2EC539F20090DF84 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2E248B912EC539F20090DF84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2E248B932EC539F30090DF84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2E248B952EC539F30090DF84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E248B9A2EC539F30090DF84 /* AI Search Router Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AI Search Router Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E248B9F2EC539F30090DF84 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		2E248BA12EC539F30090DF84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E248BAC2EC539F30090DF84 /* options */ = {isa = PBXFileReference; lastKnownFileType = folder; name = options; path = ../../../../packages/extension/dist/options; sourceTree = "<group>"; };
+		2E248BAD2EC539F30090DF84 /* popup */ = {isa = PBXFileReference; lastKnownFileType = folder; name = popup; path = ../../../../packages/extension/dist/popup; sourceTree = "<group>"; };
+		2E248BAE2EC539F30090DF84 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = ../../../../packages/extension/dist/background.js; sourceTree = "<group>"; };
+		2E248BC12EC539F30090DF84 /* background.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = background.html; path = ../../../../packages/extension/dist/background.html; sourceTree = "<group>"; };
+		2E248BAF2EC539F30090DF84 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = ../../../../packages/extension/dist/icons; sourceTree = "<group>"; };
+		2E248BB02EC539F30090DF84 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../../packages/extension/dist/manifest.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2E083BEA2EBFA85F00ED3DEC /* Frameworks */ = {
+		2E248B7C2EC539F10090DF84 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2E083C052EBFA86100ED3DEC /* Frameworks */ = {
+		2E248B972EC539F30090DF84 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -89,67 +89,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2E083BE42EBFA85F00ED3DEC = {
+		2E248B762EC539F10090DF84 = {
 			isa = PBXGroup;
 			children = (
-				2E083BEF2EBFA86000ED3DEC /* AI Search Router */,
-				2E083C0C2EBFA86100ED3DEC /* AI Search Router Extension */,
-				2E083BEE2EBFA86000ED3DEC /* Products */,
+				2E248B812EC539F10090DF84 /* AI Search Router */,
+				2E248B9E2EC539F30090DF84 /* AI Search Router Extension */,
+				2E248B802EC539F10090DF84 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		2E083BEE2EBFA86000ED3DEC /* Products */ = {
+		2E248B802EC539F10090DF84 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2E083BED2EBFA86000ED3DEC /* AI Search Router.app */,
-				2E083C082EBFA86100ED3DEC /* AI Search Router Extension.appex */,
+				2E248B7F2EC539F10090DF84 /* AI Search Router.app */,
+				2E248B9A2EC539F30090DF84 /* AI Search Router Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2E083BEF2EBFA86000ED3DEC /* AI Search Router */ = {
+		2E248B812EC539F10090DF84 /* AI Search Router */ = {
 			isa = PBXGroup;
 			children = (
-				2E083BF02EBFA86000ED3DEC /* AppDelegate.swift */,
-				2E083BFC2EBFA86000ED3DEC /* ViewController.swift */,
-				2E083BFE2EBFA86000ED3DEC /* Main.storyboard */,
-				2E083C012EBFA86100ED3DEC /* Assets.xcassets */,
-				2E083C032EBFA86100ED3DEC /* Info.plist */,
-				2E083BF22EBFA86000ED3DEC /* Resources */,
+				2E248B822EC539F20090DF84 /* AppDelegate.swift */,
+				2E248B8E2EC539F20090DF84 /* ViewController.swift */,
+				2E248B902EC539F20090DF84 /* Main.storyboard */,
+				2E248B932EC539F30090DF84 /* Assets.xcassets */,
+				2E248B952EC539F30090DF84 /* Info.plist */,
+				2E248B842EC539F20090DF84 /* Resources */,
 			);
 			path = "AI Search Router";
 			sourceTree = "<group>";
 		};
-		2E083BF22EBFA86000ED3DEC /* Resources */ = {
+		2E248B842EC539F20090DF84 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2E083BF32EBFA86000ED3DEC /* Main.html */,
-				2E083BF62EBFA86000ED3DEC /* Icon.png */,
-				2E083BF82EBFA86000ED3DEC /* Style.css */,
-				2E083BFA2EBFA86000ED3DEC /* Script.js */,
+				2E248B852EC539F20090DF84 /* Main.html */,
+				2E248B882EC539F20090DF84 /* Icon.png */,
+				2E248B8A2EC539F20090DF84 /* Style.css */,
+				2E248B8C2EC539F20090DF84 /* Script.js */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		2E083C0C2EBFA86100ED3DEC /* AI Search Router Extension */ = {
+		2E248B9E2EC539F30090DF84 /* AI Search Router Extension */ = {
 			isa = PBXGroup;
 			children = (
-				2E083C192EBFA86100ED3DEC /* Resources */,
-				2E083C0D2EBFA86100ED3DEC /* SafariWebExtensionHandler.swift */,
-				2E083C0F2EBFA86100ED3DEC /* Info.plist */,
+				2E248BAB2EC539F30090DF84 /* Resources */,
+				2E248B9F2EC539F30090DF84 /* SafariWebExtensionHandler.swift */,
+				2E248BA12EC539F30090DF84 /* Info.plist */,
 			);
 			path = "AI Search Router Extension";
 			sourceTree = "<group>";
 		};
-		2E083C192EBFA86100ED3DEC /* Resources */ = {
+		2E248BAB2EC539F30090DF84 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2E083C1A2EBFA86100ED3DEC /* options */,
-				2E083C1B2EBFA86100ED3DEC /* popup */,
-				2E083C1C2EBFA86100ED3DEC /* background.js */,
-				2E083C1D2EBFA86100ED3DEC /* newtab */,
-				2E083C1E2EBFA86100ED3DEC /* icons */,
-				2E083C1F2EBFA86100ED3DEC /* manifest.json */,
+				2E248BAC2EC539F30090DF84 /* options */,
+				2E248BAD2EC539F30090DF84 /* popup */,
+				2E248BAE2EC539F30090DF84 /* background.js */,
+				2E248BC12EC539F30090DF84 /* background.html */,
+				2E248BAF2EC539F30090DF84 /* icons */,
+				2E248BB02EC539F30090DF84 /* manifest.json */,
 			);
 			name = Resources;
 			path = "AI Search Router Extension";
@@ -158,34 +158,34 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2E083BEC2EBFA85F00ED3DEC /* AI Search Router */ = {
+		2E248B7E2EC539F10090DF84 /* AI Search Router */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2E083C162EBFA86100ED3DEC /* Build configuration list for PBXNativeTarget "AI Search Router" */;
+			buildConfigurationList = 2E248BA82EC539F30090DF84 /* Build configuration list for PBXNativeTarget "AI Search Router" */;
 			buildPhases = (
-				2E083BE92EBFA85F00ED3DEC /* Sources */,
-				2E083BEA2EBFA85F00ED3DEC /* Frameworks */,
-				2E083BEB2EBFA85F00ED3DEC /* Resources */,
-				2E083C152EBFA86100ED3DEC /* Embed Foundation Extensions */,
+				2E248B7B2EC539F10090DF84 /* Sources */,
+				2E248B7C2EC539F10090DF84 /* Frameworks */,
+				2E248B7D2EC539F10090DF84 /* Resources */,
+				2E248BA72EC539F30090DF84 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2E083C0B2EBFA86100ED3DEC /* PBXTargetDependency */,
+				2E248B9D2EC539F30090DF84 /* PBXTargetDependency */,
 			);
 			name = "AI Search Router";
 			packageProductDependencies = (
 			);
 			productName = "AI Search Router";
-			productReference = 2E083BED2EBFA86000ED3DEC /* AI Search Router.app */;
+			productReference = 2E248B7F2EC539F10090DF84 /* AI Search Router.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2E083C072EBFA86100ED3DEC /* AI Search Router Extension */ = {
+		2E248B992EC539F30090DF84 /* AI Search Router Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2E083C122EBFA86100ED3DEC /* Build configuration list for PBXNativeTarget "AI Search Router Extension" */;
+			buildConfigurationList = 2E248BA42EC539F30090DF84 /* Build configuration list for PBXNativeTarget "AI Search Router Extension" */;
 			buildPhases = (
-				2E083C042EBFA86100ED3DEC /* Sources */,
-				2E083C052EBFA86100ED3DEC /* Frameworks */,
-				2E083C062EBFA86100ED3DEC /* Resources */,
+				2E248B962EC539F30090DF84 /* Sources */,
+				2E248B972EC539F30090DF84 /* Frameworks */,
+				2E248B982EC539F30090DF84 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -195,117 +195,117 @@
 			packageProductDependencies = (
 			);
 			productName = "AI Search Router Extension";
-			productReference = 2E083C082EBFA86100ED3DEC /* AI Search Router Extension.appex */;
+			productReference = 2E248B9A2EC539F30090DF84 /* AI Search Router Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2E083BE52EBFA85F00ED3DEC /* Project object */ = {
+		2E248B772EC539F10090DF84 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2610;
 				LastUpgradeCheck = 2610;
 				TargetAttributes = {
-					2E083BEC2EBFA85F00ED3DEC = {
-						CreatedOnToolsVersion = 26.1;
+					2E248B7E2EC539F10090DF84 = {
+						CreatedOnToolsVersion = 26.1.1;
 					};
-					2E083C072EBFA86100ED3DEC = {
-						CreatedOnToolsVersion = 26.1;
+					2E248B992EC539F30090DF84 = {
+						CreatedOnToolsVersion = 26.1.1;
 					};
 				};
 			};
-			buildConfigurationList = 2E083BE82EBFA85F00ED3DEC /* Build configuration list for PBXProject "AI Search Router" */;
+			buildConfigurationList = 2E248B7A2EC539F10090DF84 /* Build configuration list for PBXProject "AI Search Router" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 2E083BE42EBFA85F00ED3DEC;
+			mainGroup = 2E248B762EC539F10090DF84;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 2E083BEE2EBFA86000ED3DEC /* Products */;
+			productRefGroup = 2E248B802EC539F10090DF84 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2E083BEC2EBFA85F00ED3DEC /* AI Search Router */,
-				2E083C072EBFA86100ED3DEC /* AI Search Router Extension */,
+				2E248B7E2EC539F10090DF84 /* AI Search Router */,
+				2E248B992EC539F30090DF84 /* AI Search Router Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2E083BEB2EBFA85F00ED3DEC /* Resources */ = {
+		2E248B7D2EC539F10090DF84 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E083BF72EBFA86000ED3DEC /* Icon.png in Resources */,
-				2E083C002EBFA86000ED3DEC /* Main.storyboard in Resources */,
-				2E083BFB2EBFA86000ED3DEC /* Script.js in Resources */,
-				2E083BF52EBFA86000ED3DEC /* Main.html in Resources */,
-				2E083C022EBFA86100ED3DEC /* Assets.xcassets in Resources */,
-				2E083BF92EBFA86000ED3DEC /* Style.css in Resources */,
+				2E248B892EC539F20090DF84 /* Icon.png in Resources */,
+				2E248B922EC539F20090DF84 /* Main.storyboard in Resources */,
+				2E248B8D2EC539F20090DF84 /* Script.js in Resources */,
+				2E248B872EC539F20090DF84 /* Main.html in Resources */,
+				2E248B942EC539F30090DF84 /* Assets.xcassets in Resources */,
+				2E248B8B2EC539F20090DF84 /* Style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2E083C062EBFA86100ED3DEC /* Resources */ = {
+		2E248B982EC539F30090DF84 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E083C202EBFA86100ED3DEC /* options in Resources */,
-				2E083C222EBFA86100ED3DEC /* background.js in Resources */,
-				2E083C212EBFA86100ED3DEC /* popup in Resources */,
-				2E083C242EBFA86100ED3DEC /* icons in Resources */,
-				2E083C252EBFA86100ED3DEC /* manifest.json in Resources */,
-				2E083C232EBFA86100ED3DEC /* newtab in Resources */,
+				2E248BB12EC539F30090DF84 /* options in Resources */,
+				2E248BB42EC539F30090DF84 /* icons in Resources */,
+				2E248BB52EC539F30090DF84 /* manifest.json in Resources */,
+				2E248BB32EC539F30090DF84 /* background.js in Resources */,
+				2E248BB62EC539F30090DF84 /* background.html in Resources */,
+				2E248BB22EC539F30090DF84 /* popup in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2E083BE92EBFA85F00ED3DEC /* Sources */ = {
+		2E248B7B2EC539F10090DF84 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E083BFD2EBFA86000ED3DEC /* ViewController.swift in Sources */,
-				2E083BF12EBFA86000ED3DEC /* AppDelegate.swift in Sources */,
+				2E248B8F2EC539F20090DF84 /* ViewController.swift in Sources */,
+				2E248B832EC539F20090DF84 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2E083C042EBFA86100ED3DEC /* Sources */ = {
+		2E248B962EC539F30090DF84 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E083C0E2EBFA86100ED3DEC /* SafariWebExtensionHandler.swift in Sources */,
+				2E248BA02EC539F30090DF84 /* SafariWebExtensionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2E083C0B2EBFA86100ED3DEC /* PBXTargetDependency */ = {
+		2E248B9D2EC539F30090DF84 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2E083C072EBFA86100ED3DEC /* AI Search Router Extension */;
-			targetProxy = 2E083C0A2EBFA86100ED3DEC /* PBXContainerItemProxy */;
+			target = 2E248B992EC539F30090DF84 /* AI Search Router Extension */;
+			targetProxy = 2E248B9C2EC539F30090DF84 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2E083BF32EBFA86000ED3DEC /* Main.html */ = {
+		2E248B852EC539F20090DF84 /* Main.html */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2E083BF42EBFA86000ED3DEC /* Base */,
+				2E248B862EC539F20090DF84 /* Base */,
 			);
 			name = Main.html;
 			sourceTree = "<group>";
 		};
-		2E083BFE2EBFA86000ED3DEC /* Main.storyboard */ = {
+		2E248B902EC539F20090DF84 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2E083BFF2EBFA86000ED3DEC /* Base */,
+				2E248B912EC539F20090DF84 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -313,7 +313,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		2E083C102EBFA86100ED3DEC /* Debug */ = {
+		2E248BA22EC539F30090DF84 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -376,7 +376,7 @@
 			};
 			name = Debug;
 		};
-		2E083C112EBFA86100ED3DEC /* Release */ = {
+		2E248BA32EC539F30090DF84 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -431,11 +431,12 @@
 			};
 			name = Release;
 		};
-		2E083C132EBFA86100ED3DEC /* Debug */ = {
+		2E248BA52EC539F30090DF84 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6UT26E7RJ7;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -454,7 +455,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aisearchrouter.extension.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aisearchrouter.AI-Search-Router.Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -465,11 +466,12 @@
 			};
 			name = Debug;
 		};
-		2E083C142EBFA86100ED3DEC /* Release */ = {
+		2E248BA62EC539F30090DF84 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6UT26E7RJ7;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -488,7 +490,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aisearchrouter.extension.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aisearchrouter.AI-Search-Router.Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -499,14 +501,16 @@
 			};
 			name = Release;
 		};
-		2E083C172EBFA86100ED3DEC /* Debug */ = {
+		2E248BA92EC539F30090DF84 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6UT26E7RJ7;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
@@ -540,14 +544,16 @@
 			};
 			name = Debug;
 		};
-		2E083C182EBFA86100ED3DEC /* Release */ = {
+		2E248BAA2EC539F30090DF84 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6UT26E7RJ7;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
@@ -584,34 +590,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2E083BE82EBFA85F00ED3DEC /* Build configuration list for PBXProject "AI Search Router" */ = {
+		2E248B7A2EC539F10090DF84 /* Build configuration list for PBXProject "AI Search Router" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2E083C102EBFA86100ED3DEC /* Debug */,
-				2E083C112EBFA86100ED3DEC /* Release */,
+				2E248BA22EC539F30090DF84 /* Debug */,
+				2E248BA32EC539F30090DF84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2E083C122EBFA86100ED3DEC /* Build configuration list for PBXNativeTarget "AI Search Router Extension" */ = {
+		2E248BA42EC539F30090DF84 /* Build configuration list for PBXNativeTarget "AI Search Router Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2E083C132EBFA86100ED3DEC /* Debug */,
-				2E083C142EBFA86100ED3DEC /* Release */,
+				2E248BA52EC539F30090DF84 /* Debug */,
+				2E248BA62EC539F30090DF84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2E083C162EBFA86100ED3DEC /* Build configuration list for PBXNativeTarget "AI Search Router" */ = {
+		2E248BA82EC539F30090DF84 /* Build configuration list for PBXNativeTarget "AI Search Router" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2E083C172EBFA86100ED3DEC /* Debug */,
-				2E083C182EBFA86100ED3DEC /* Release */,
+				2E248BA92EC539F30090DF84 /* Debug */,
+				2E248BAA2EC539F30090DF84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2E083BE52EBFA85F00ED3DEC /* Project object */;
+	rootObject = 2E248B772EC539F10090DF84 /* Project object */;
 }
