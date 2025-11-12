@@ -33,6 +33,8 @@ When you perform a search, the extension analyzes your query and automatically d
 - **AI Search** (e.g., Perplexity, ChatGPT, Google AI Mode) for questions requiring reasoning
 - **Traditional Search** (e.g., Google, Kagi, DuckDuckGo) for factual lookups and navigation
 
+![AI Search Router Demo](ai-search-router.gif)
+
 ## Features
 
 - 🤖 **Intelligent Classification**: Automatically detects if your query is a question or a simple search

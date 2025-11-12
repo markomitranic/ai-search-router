@@ -34,6 +34,31 @@ test('classifyQuery - Question starters (is, if, can, etc.)', () => {
   assert.strictEqual(classifyQuery('did you know this'), 'ai');
 });
 
+test('classifyQuery - Command starters (summarize, explain, compare, etc.)', () => {
+  // Core command words
+  assert.strictEqual(classifyQuery('summarize this article'), 'ai');
+  assert.strictEqual(classifyQuery('Summarize the key points of quantum computing'), 'ai');
+  assert.strictEqual(classifyQuery('explain how neural networks work'), 'ai');
+  assert.strictEqual(classifyQuery('compare react vs vue'), 'ai');
+  assert.strictEqual(classifyQuery('analyze the performance metrics'), 'ai');
+  assert.strictEqual(classifyQuery('describe the main features'), 'ai');
+  
+  // Additional command words
+  assert.strictEqual(classifyQuery('evaluate this approach'), 'ai');
+  assert.strictEqual(classifyQuery('calculate the total cost'), 'ai');
+  assert.strictEqual(classifyQuery('define machine learning'), 'ai');
+  assert.strictEqual(classifyQuery('review the code changes'), 'ai');
+  assert.strictEqual(classifyQuery('discuss the implications'), 'ai');
+  assert.strictEqual(classifyQuery('generate a report'), 'ai');
+  assert.strictEqual(classifyQuery('critique this design'), 'ai');
+  assert.strictEqual(classifyQuery('elaborate on this concept'), 'ai');
+  assert.strictEqual(classifyQuery('clarify the requirements'), 'ai');
+  
+  // Should NOT trigger if not at the start
+  assert.strictEqual(classifyQuery('please summarize'), 'serp');
+  assert.strictEqual(classifyQuery('need to explain'), 'serp');
+});
+
 test('classifyQuery - Question mark', () => {
   assert.strictEqual(classifyQuery('is this a question?'), 'ai');
   assert.strictEqual(classifyQuery('can you help me?'), 'ai');

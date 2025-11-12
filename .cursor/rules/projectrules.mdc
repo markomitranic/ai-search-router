@@ -37,11 +37,12 @@ Managed with pnpm workspaces. Core is reused by extension; extension is reused b
 ### Classification Rules (ANY → 'ai')
 
 1. Contains W-words anywhere: `who`, `what`, `where`, `when`, `why`, `how`
-2. Starts with: `is`, `if`, `can`, `could`, `should`, `would`, `will`, `do`, `does`, `did`
-3. Contains `?`
-4. Contains `,` or `;` (multi-part/complex)
-5. Has "but/and + question word" pattern (e.g., "but are", "and can")
+2. Starts with question words: `is`, `if`, `can`, `could`, `should`, `would`, `will`, `do`, `does`, `did`
+3. Starts with command words: `summarize`, `explain`, `compare`, `analyze`, `describe`, `evaluate`, `calculate`, `define`, `review`, `discuss`, `generate`, `critique`, `elaborate`, `clarify`
+4. Contains `?`
+5. Contains `,` or `;` (multi-part/complex)
 6. Word count ≥ 10
+7. Has "but/and + question word" pattern (e.g., "but are", "and can")
    Otherwise → `'serp'`
 
 ### Providers
