@@ -2,334 +2,107 @@
 alwaysApply: true
 ---
 
-# AI Search Router - Project Rules
+# AI Search Router — Project Rules (Concise)
 
 ## Purpose
 
-This project is a browser extension that intelligently routes search queries to either AI-powered search engines or traditional search engines based on automatic query classification.
+Browser extension that routes searches to AI engines or traditional SERPs using fast, deterministic query classification (no ML/LLM).
 
-**Core Functionality:**
-- Analyzes search queries using pattern-based classification
-- Routes questions/reasoning queries → AI search (Perplexity, ChatGPT, Google AI Mode)
-- Routes factual/navigation queries → Traditional search (Google, Kagi, DuckDuckGo, Qwant)
-- Users can customize their preferred providers with preset or custom URLs
+**What it does**
 
-## Architecture
+- Classifies queries locally in <1ms
+- Sends questions/complex queries → AI search
+- Sends factual/navigation queries → traditional SERP
+- Users pick providers or use custom URLs (`{query}` placeholder)
 
-### Monorepo Structure
-
-This project uses **pnpm workspaces** to manage a monorepo structure:
+## Monorepo
 
 ```
 /
-├── packages/
-│   ├── core/          # @ai-search-router/core - Shared TS library
-│   └── extension/     # @ai-search-router/extension - Shared extension code
-├── platforms/
-│   ├── chromium/      # Chromium-specific build (Chrome, Edge, Brave)
-│   └── safari/        # Safari wrapper (future, requires Xcode)
+├─ packages/
+│  ├─ core/        # @ai-search-router/core (classifier + providers)
+│  └─ extension/   # @ai-search-router/extension (shared WebExtension)
+└─ platforms/
+   ├─ chromium/    # Chrome/Edge/Brave build
+   └─ safari/      # Xcode wrapper (future)
 ```
 
-**Why Monorepo?**
-- Safari and Chromium both support WebExtensions API (95% code sharing)
-- Core library reused by extension package
-- Extension code reused by all browser platforms
-- Single source of truth, easier maintenance
-- pnpm workspaces handle inter-package dependencies automatically
+Managed with pnpm workspaces. Core is reused by extension; extension is reused by platforms.
 
-### Package Breakdown
+## Core Library (`packages/core`)
 
-#### `packages/core/` - Classification Library
+- `classifyQuery(query: string): 'ai' | 'serp'`
+- Provider presets and URL helpers
 
-**Purpose:** Shared TypeScript library for query classification and provider management.
+### Classification Rules (ANY → 'ai')
 
-**Key Files:**
-- `src/classifier.ts` - Basic pattern-based query classifier
-- `src/providers.ts` - Search provider configurations and URL templates
-- `src/types.ts` - Shared TypeScript types
-- `src/classifier.test.ts` - Unit tests
+1. Contains W-words anywhere: `who`, `what`, `where`, `when`, `why`, `how`
+2. Starts with: `is`, `if`, `can`, `could`, `should`, `would`, `will`, `do`, `does`, `did`
+3. Contains `?`
+4. Contains `,` or `;` (multi-part/complex)
+5. Has "but/and + question word" pattern (e.g., "but are", "and can")
+6. Word count ≥ 10
+   Otherwise → `'serp'`
 
-**Exports:**
-- `classifyQuery(query: string): 'ai' | 'serp'` - Main classification function
-- Provider configurations and URL formatting helpers
+### Providers
 
-#### `packages/extension/` - Browser Extension
+AI:
 
-**Purpose:** Shared browser extension code using WebExtensions API (compatible with both Chromium and Safari).
-
-**Structure:**
-- `manifest.json` - WebExtensions manifest (Manifest V3)
-- `src/background.ts` - Service worker for search interception
-- `src/popup/` - Extension popup UI (quick toggle, status)
-- `src/options/` - Settings page (provider selection, custom URLs)
-
-**Key Functionality:**
-- Intercepts search queries via service worker
-- Loads user preferences from browser storage
-- Uses `@ai-search-router/core` for classification
-- Redirects to appropriate provider
-
-#### `platforms/` - Platform-Specific Builds
-
-**Chromium:** Build scripts that bundle extension code for Chrome/Edge/Brave
-**Safari:** Placeholder for future Xcode conversion using `xcrun safari-web-extension-converter`
-
-## Classification Logic
-
-### Basic Pattern Matching (No ML/LLM)
-
-The classifier uses **simple rule-based pattern matching** for speed (< 1ms per query):
-
-**Routes to AI search if ANY of these conditions are true:**
-1. Query starts with question words: `who`, `what`, `where`, `when`, `why`, `how`
-2. Query contains `?`
-3. Query length > 30 characters (longer queries typically questions)
-
-**Otherwise:** Routes to traditional SERP
-
-**Design Principle:** Fast, deterministic, no model training, no API calls
-
-### Examples
-
-✅ AI Search:
-- "How do I fix a leaky faucet?"
-- "What is the capital of France?"
-- "Why is the sky blue"
-- "who invented the telephone"
-- "explain quantum computing in simple terms"
-
-✅ Traditional SERP:
-- "weather"
-- "reddit"
-- "amazon"
-- "python documentation"
-- "translate hello to spanish"
-
-## Provider System
-
-### Predefined Providers
-
-**AI Providers:**
+- Google AI Mode: `https://www.google.com/search?udm=50&q={query}`
 - Perplexity: `https://www.perplexity.ai/search?q={query}`
 - ChatGPT: `https://chat.openai.com/?q={query}`
-- Google AI Mode: `https://www.google.com/search?q={query}&udm=28`
 
-**Traditional SERP:**
+SERP:
+
 - Google: `https://www.google.com/search?q={query}`
 - Kagi: `https://kagi.com/search?q={query}`
 - Qwant: `https://www.qwant.com/?q={query}`
 - DuckDuckGo: `https://duckduckgo.com/?q={query}`
 
-**Defaults:**
-- AI: Google AI Mode
-- SERP: Google
+Defaults: AI = Google AI Mode, SERP = Google
+Custom URLs supported (uses `{query}` substitution with URL-encoding).
 
-### Custom URLs
+## Extension (`packages/extension`)
 
-Users can enter custom search URLs in the settings. The `{query}` placeholder gets replaced with the actual search query (URL-encoded).
+- MV3 service worker intercepts searches
+- Loads preferences from storage
+- Calls `@ai-search-router/core` for classification
+- Redirects to the selected provider URL
 
-## Development Workflow
+Permissions: `storage`, `tabs`, `webNavigation` or `declarativeNetRequest`
 
-### Setup
+## Dev Workflow
 
 ```bash
-# Install dependencies
 pnpm install
-
-# Build all packages
-pnpm build
-
-# Development with watch mode
-pnpm dev
-
-# Run tests
-pnpm test
+pnpm -r build     # build all
+pnpm -r dev       # watch mode
+pnpm -r test      # tests
 ```
 
-### Package Commands
+Chromium build:
 
-From root:
-- `pnpm -r build` - Build all packages
-- `pnpm -r dev` - Watch mode for all packages
-- `pnpm -r test` - Run all tests
-- `pnpm -r clean` - Clean build artifacts
-
-From specific package:
-```bash
-cd packages/core
-pnpm test
-```
-
-### Building for Browsers
-
-**Chromium:**
 ```bash
 cd platforms/chromium
-pnpm build
-# Output: platforms/chromium/dist/
+pnpm build  # outputs to platforms/chromium/dist/
 ```
 
-Load unpacked extension in Chrome:
-1. Go to `chrome://extensions/`
-2. Enable "Developer mode"
-3. Click "Load unpacked"
-4. Select `platforms/chromium/dist/` folder
+Load unpacked at `chrome://extensions` → Developer mode → Load unpacked → `platforms/chromium/dist/`
 
-**Safari (Future):**
-Requires Xcode installed on macOS:
-```bash
-xcrun safari-web-extension-converter platforms/chromium/dist/
-```
+## Testing
 
-## Extension Structure
+- Core unit tests: `packages/core/src/*.test.ts`
+- Verify: common patterns, edge cases, URL formatting, perf (<1ms)
+- Manual extension checks: toggle works, provider persistence, custom URL usage, classification preview, redirection across entry points
 
-### Manifest V3
+## Conventions
 
-Uses modern Manifest V3 for Chrome/Edge/Brave compatibility:
-- Service worker instead of background page
-- `declarativeNetRequest` or `webNavigation` API for interception
-- `storage` API for user preferences
-- Proper CSP (Content Security Policy)
-
-### Permissions
-
-- `storage` - Save user preferences
-- `tabs` - Access current tab for redirects
-- `webNavigation` or `declarativeNetRequest` - Intercept searches
-
-### User Flow
-
-1. User performs search (address bar, new tab, search engine)
-2. Background service worker intercepts the request
-3. Loads user's provider preferences from storage
-4. Classifies query using `@ai-search-router/core`
-5. Redirects to appropriate provider URL
-
-## Testing Strategy
-
-### Unit Tests (Core Package)
-
-Test files: `packages/core/src/*.test.ts`
-
-**Coverage:**
-- Common question patterns
-- Edge cases (empty, special chars, very long)
-- Provider URL formatting
-- Performance benchmarks (< 1ms per classification)
-
-**Run tests:**
-```bash
-cd packages/core
-pnpm test
-```
-
-### Manual Testing (Extension)
-
-**Test scenarios:**
-- Enable/disable toggle works
-- Provider selection persists
-- Custom URLs are saved and used
-- Classification preview in options
-- Actual search redirection works
-- Works across different search entry points (omnibox, new tab, search bar)
-
-## Code Conventions
-
-### TypeScript
-
-- Strict mode enabled
-- Explicit return types for public functions
-- No `any` types (use `unknown` if needed)
-- Prefer interfaces over types for object shapes
-
-### File Naming
-
-- `kebab-case.ts` for files
-- `PascalCase` for classes/interfaces
-- `camelCase` for functions/variables
-
-### Imports
-
-- Use absolute imports within packages via `package.json` exports
-- Core package imported as `@ai-search-router/core` in extension
-
-### Style (Optional)
-
-- ESLint + Prettier recommended (not enforced initially)
-- Consistent formatting across all files
-
-## Future Plans
-
-### Safari Extension
-
-**Requirements:**
-- macOS with Xcode installed
-- Apple Developer account for distribution
-
-**Implementation:**
-1. Use `xcrun safari-web-extension-converter` to convert Chromium build
-2. Creates Xcode project with native app wrapper
-3. Shared extension code works as-is (WebExtensions API)
-4. Build and sign in Xcode
-5. Submit to App Store
-
-**Timeline:** When Xcode is available
-
-### Potential Enhancements
-
-- Configurable classification rules in settings
-- History/analytics of routing decisions
-- Keyboard shortcut to toggle provider temporarily
-- Context menu integration
-- Additional provider presets
-- Sync settings across devices
-
-## Browser Compatibility
-
-### Supported
-
-- ✅ Chrome/Chromium 88+
-- ✅ Microsoft Edge 88+
-- ✅ Brave (Chromium-based)
-- ✅ Opera (Chromium-based)
-
-### Future
-
-- 🔜 Safari 14+ (requires Xcode conversion)
-- ❌ Firefox (would need minor API adjustments, not prioritized)
-
-## Troubleshooting
-
-### Extension Not Loading
-
-- Check manifest.json syntax
-- Verify all file paths in manifest are correct
-- Check browser console for errors
-- Try reloading extension
-
-### Classification Not Working
-
-- Test classifier independently: `cd packages/core && pnpm test`
-- Check browser console logs in service worker
-- Verify storage permissions are granted
-
-### Build Failures
-
-- Clear build artifacts: `pnpm -r clean`
-- Delete node_modules: `rm -rf node_modules && pnpm install`
-- Check TypeScript version compatibility
-
-## Contributing Guidelines
-
-1. Work in feature branches
-2. Write tests for new classification patterns
-3. Test manually in browser before committing
-4. Update this documentation for architectural changes
-5. Keep core package framework-agnostic (no browser APIs)
+- TypeScript strict; no `any`
+- `kebab-case` files, `PascalCase` types, `camelCase` vars
+- Absolute imports within packages; import core as `@ai-search-router/core`
 
 ## Notes
 
-- Don't start development servers automatically - check if running first
-- This is a client-side only extension, no backend/API required
-- All classification happens locally for privacy and speed
-- User preferences stored in browser's local storage (not synced by default)
+- Do not auto-start dev servers; check first
+- All logic is client-side; no backend
+- Preferences stored locally (not synced by default)

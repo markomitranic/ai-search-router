@@ -1,17 +1,5 @@
 # Safari Extension Release Checklist
 
-## ✅ Pre-Release Testing
-
-- [ ] Test in Safari with various query types
-- [ ] Verify AI routing works (questions → AI search)
-- [ ] Verify traditional routing works (facts → Google)
-- [ ] Test extension popup UI
-- [ ] Test extension settings page
-- [ ] Test provider switching (Perplexity, ChatGPT, Google AI)
-- [ ] Test custom URL configuration
-- [ ] Verify it works after Safari restart
-- [ ] Verify it works after Mac restart
-
 ## 📦 Build Release Packages
 
 ```bash
@@ -29,18 +17,21 @@ pnpm build
 ## 📤 GitHub Release Steps
 
 1. **Create Git Tag**
+
    ```bash
    git tag -a v0.1.0 -m "Release v0.1.0 - Initial Safari support"
    git push origin v0.1.0
    ```
 
 2. **Create GitHub Release**
+
    - Go to: https://github.com/YOUR-USERNAME/ai-search-router/releases/new
    - Tag: `v0.1.0`
    - Title: `v0.1.0 - Safari Extension Support`
    - Description: (see template below)
 
 3. **Upload Assets**
+
    - Upload: `platforms/safari/AI-Search-Router-Safari.zip`
    - Upload: `platforms/safari/AI-Search-Router-Safari.dmg`
    - Upload: `SAFARI_INSTALL.md` (as documentation)
@@ -69,6 +60,7 @@ pnpm build
 ### Safari Extension (macOS)
 
 Choose one:
+
 - **[AI-Search-Router-Safari.dmg](link)** (348K) - Recommended
 - **[AI-Search-Router-Safari.zip](link)** (348K) - Alternative
 
@@ -85,11 +77,13 @@ Available at: `platforms/chromium/` (load unpacked extension)
 The extension automatically routes your searches:
 
 **Questions → AI Search**
+
 - "how to learn programming" → Perplexity/ChatGPT/Google AI
 - "what is quantum computing" → AI-powered answer
 - "explain machine learning" → Detailed AI explanation
 
-**Facts/Navigation → Traditional Search**  
+**Facts/Navigation → Traditional Search**
+
 - "weather" → Google
 - "reddit" → Google
 - "amazon" → Google
@@ -131,6 +125,7 @@ The extension automatically routes your searches:
 ## 📊 Version Bump (for next release)
 
 Remember to update version in:
+
 - [ ] `packages/extension/manifest.json`
 - [ ] `packages/core/package.json`
 - [ ] `packages/extension/package.json`
@@ -148,6 +143,7 @@ pnpm build
 ## 📢 Announcement Channels
 
 After release:
+
 - [ ] Update README.md with Safari install instructions
 - [ ] Tweet/post on social media
 - [ ] Share in relevant communities (r/safari, r/productivity, etc.)
@@ -175,4 +171,3 @@ xcrun stapler staple "AI Search Router.app"
 ```
 
 This removes the "Untrusted Developer" warning for users.
-
