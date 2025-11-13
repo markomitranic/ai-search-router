@@ -1,16 +1,15 @@
 {
-  "name": "@ai-search-router/safari",
+  "name": "@ai-search-router/chromium",
   "version": "0.1.0",
-  "description": "Safari platform build for AI Search Router",
+  "description": "Chromium platform build for AI Search Router",
   "private": true,
   "scripts": {
-    "build": "./build.sh",
     "package": "./package.sh"
   },
   "keywords": [
-    "safari-extension",
+    "chrome-extension",
     "browser-extension",
-    "macos"
+    "chromium"
   ],
   "author": "",
   "license": "MIT"
