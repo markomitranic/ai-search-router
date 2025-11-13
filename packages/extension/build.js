@@ -4,14 +4,16 @@ import { dirname, join, extname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const rootDir = join(__dirname, '../..');
+const distDir = join(rootDir, 'dist/chromium');
 
 const isWatch = process.argv.includes('--watch');
 
 console.log('🔨 Building AI Search Router Extension...\n');
 
 // Clean dist
-await rm(join(__dirname, 'dist'), { recursive: true, force: true });
-await mkdir(join(__dirname, 'dist'), { recursive: true });
+await rm(distDir, { recursive: true, force: true });
+await mkdir(distDir, { recursive: true });
 
 // Build configuration
 const buildOptions = {
@@ -21,7 +23,7 @@ const buildOptions = {
     'src/options/options.ts'
   ],
   bundle: true,
-  outdir: 'dist',
+  outdir: distDir,
   format: 'esm',
   platform: 'browser',
   target: 'es2020',
@@ -52,7 +54,7 @@ const staticFiles = [
 
 console.log('📋 Copying static files...');
 for (const file of staticFiles) {
-  const dest = join(__dirname, 'dist', file.replace('src/', ''));
+  const dest = join(distDir, file.replace('src/', ''));
   await mkdir(dirname(dest), { recursive: true });
   await copyFile(join(__dirname, file), dest);
   console.log(`  ✓ ${file}`);
@@ -61,7 +63,7 @@ for (const file of staticFiles) {
 // Copy icons directory
 console.log('\n🎨 Copying icons...');
 const iconsSource = join(__dirname, 'icons');
-const iconsDest = join(__dirname, 'dist/icons');
+const iconsDest = join(distDir, 'icons');
 await mkdir(iconsDest, { recursive: true });
 
 async function copyDirectory(src, dest) {
@@ -86,10 +88,10 @@ await copyDirectory(iconsSource, iconsDest);
 console.log('\n✨ Build complete!\n');
 
 if (!isWatch) {
-  console.log('📦 Extension built to: packages/extension/dist/\n');
+  console.log('📦 Extension built to: dist/chromium/\n');
   console.log('Next steps:');
   console.log('  1. Open chrome://extensions/');
   console.log('  2. Enable "Developer mode"');
   console.log('  3. Click "Load unpacked"');
-  console.log('  4. Select packages/extension/dist/\n');
+  console.log('  4. Select dist/chromium/\n');
 }

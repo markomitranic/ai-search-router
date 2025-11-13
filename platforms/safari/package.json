@@ -1,0 +1,17 @@
+{
+  "name": "@ai-search-router/safari",
+  "version": "0.1.0",
+  "description": "Safari platform build for AI Search Router",
+  "private": true,
+  "scripts": {
+    "build": "./build.sh"
+  },
+  "keywords": [
+    "safari-extension",
+    "browser-extension",
+    "macos"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+

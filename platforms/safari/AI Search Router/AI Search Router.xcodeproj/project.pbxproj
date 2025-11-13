@@ -63,12 +63,12 @@
 		2E248B9A2EC539F30090DF84 /* AI Search Router Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AI Search Router Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E248B9F2EC539F30090DF84 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
 		2E248BA12EC539F30090DF84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2E248BAC2EC539F30090DF84 /* options */ = {isa = PBXFileReference; lastKnownFileType = folder; name = options; path = ../../../../packages/extension/dist/options; sourceTree = "<group>"; };
-		2E248BAD2EC539F30090DF84 /* popup */ = {isa = PBXFileReference; lastKnownFileType = folder; name = popup; path = ../../../../packages/extension/dist/popup; sourceTree = "<group>"; };
-		2E248BAE2EC539F30090DF84 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = ../../../../packages/extension/dist/background.js; sourceTree = "<group>"; };
-		2E248BC12EC539F30090DF84 /* background.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = background.html; path = ../../../../packages/extension/dist/background.html; sourceTree = "<group>"; };
-		2E248BAF2EC539F30090DF84 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = ../../../../packages/extension/dist/icons; sourceTree = "<group>"; };
-		2E248BB02EC539F30090DF84 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../../packages/extension/dist/manifest.json; sourceTree = "<group>"; };
+		2E248BAC2EC539F30090DF84 /* options */ = {isa = PBXFileReference; lastKnownFileType = folder; name = options; path = ../../../../dist/chromium/options; sourceTree = "<group>"; };
+		2E248BAD2EC539F30090DF84 /* popup */ = {isa = PBXFileReference; lastKnownFileType = folder; name = popup; path = ../../../../dist/chromium/popup; sourceTree = "<group>"; };
+		2E248BAE2EC539F30090DF84 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = ../../../../dist/chromium/background.js; sourceTree = "<group>"; };
+		2E248BC12EC539F30090DF84 /* background.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = background.html; path = ../../../../dist/chromium/background.html; sourceTree = "<group>"; };
+		2E248BAF2EC539F30090DF84 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = ../../../../dist/chromium/icons; sourceTree = "<group>"; };
+		2E248BB02EC539F30090DF84 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../../dist/chromium/manifest.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

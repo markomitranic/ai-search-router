@@ -77,6 +77,14 @@ pnpm build
 pnpm test
 ```
 
+## 📦 Build Release Packages
+
+```bash
+# 1. Build latest version
+pnpm build
+pnpm build:safari
+```
+
 ## How It Works
 
 The extension uses simple pattern-based classification:

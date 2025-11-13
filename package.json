@@ -5,6 +5,7 @@
   "description": "Browser extension for intelligent search routing between AI and traditional search engines",
   "scripts": {
     "build": "pnpm -r build",
+    "build:safari": "platforms/safari/build.sh",
     "dev": "pnpm -r dev",
     "test": "pnpm -r test",
     "lint": "pnpm -r lint",
