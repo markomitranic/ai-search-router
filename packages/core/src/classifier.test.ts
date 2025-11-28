@@ -13,6 +13,9 @@ test('classifyQuery - W-words anywhere in query', () => {
   assert.strictEqual(classifyQuery('who invented the telephone'), 'ai');
   assert.strictEqual(classifyQuery('which previous software did the brave browser author make'), 'ai');
   assert.strictEqual(classifyQuery('which is better'), 'ai');
+  assert.strictEqual(classifyQuery('whose idea was this'), 'ai');
+  assert.strictEqual(classifyQuery('to whom should I address this'), 'ai');
+  assert.strictEqual(classifyQuery('whom did they contact'), 'ai');
   
   // Mid-sentence (should still trigger AI)
   assert.strictEqual(classifyQuery('tell me how to do this'), 'ai');
@@ -22,9 +25,12 @@ test('classifyQuery - W-words anywhere in query', () => {
   assert.strictEqual(classifyQuery('describe why this works'), 'ai');
   assert.strictEqual(classifyQuery('someone who knows python'), 'ai'); // Changed from 'serp' - "who" is now detected
   assert.strictEqual(classifyQuery('tell me which one is better'), 'ai');
+  assert.strictEqual(classifyQuery('I wonder whose code this is'), 'ai');
+  assert.strictEqual(classifyQuery('tell me whom to ask'), 'ai');
 });
 
 test('classifyQuery - Question starters (is, if, can, etc.)', () => {
+  // Original question starters
   assert.strictEqual(classifyQuery('is this correct'), 'ai');
   assert.strictEqual(classifyQuery('if I do this what happens'), 'ai');
   assert.strictEqual(classifyQuery('can you help me'), 'ai');
@@ -35,6 +41,22 @@ test('classifyQuery - Question starters (is, if, can, etc.)', () => {
   assert.strictEqual(classifyQuery('do I need a visa'), 'ai');
   assert.strictEqual(classifyQuery('does this work'), 'ai');
   assert.strictEqual(classifyQuery('did you know this'), 'ai');
+  
+  // Auxiliary verbs (be forms)
+  assert.strictEqual(classifyQuery('are these correct'), 'ai');
+  assert.strictEqual(classifyQuery('was this the right choice'), 'ai');
+  assert.strictEqual(classifyQuery('were they happy with the results'), 'ai');
+  
+  // Auxiliary verbs (have forms)
+  assert.strictEqual(classifyQuery('has anyone tried this'), 'ai');
+  assert.strictEqual(classifyQuery('have you seen this feature'), 'ai');
+  assert.strictEqual(classifyQuery('had they known about this'), 'ai');
+  
+  // Modal verbs
+  assert.strictEqual(classifyQuery('may I use this library'), 'ai');
+  assert.strictEqual(classifyQuery('might this work for my use case'), 'ai');
+  assert.strictEqual(classifyQuery('must I configure this'), 'ai');
+  assert.strictEqual(classifyQuery('shall we proceed with this approach'), 'ai');
 });
 
 test('classifyQuery - Command starters (summarize, explain, compare, etc.)', () => {
@@ -113,6 +135,15 @@ test('classifyQuery - Conjunction patterns (but/and + question word)', () => {
   // "and" patterns
   assert.strictEqual(classifyQuery('interesting stuff and are they available'), 'ai');
   assert.strictEqual(classifyQuery('good reviews and can I buy it'), 'ai');
+  
+  // New auxiliary verbs in conjunctions
+  assert.strictEqual(classifyQuery('looks promising but has anyone tested it'), 'ai');
+  assert.strictEqual(classifyQuery('seems popular but have people reported issues'), 'ai');
+  assert.strictEqual(classifyQuery('tried it once but had they fixed the bug'), 'ai');
+  assert.strictEqual(classifyQuery('it works well and may I suggest an improvement'), 'ai');
+  assert.strictEqual(classifyQuery('looks good but might this break'), 'ai');
+  assert.strictEqual(classifyQuery('available now but must I upgrade'), 'ai');
+  assert.strictEqual(classifyQuery('planning this and shall we include tests'), 'ai');
 });
 
 test('classifyQuery - Edge cases', () => {
@@ -140,6 +171,40 @@ test('classifyQuery - Edge cases', () => {
   assert.strictEqual(classifyQuery('istanbul'), 'serp');
   assert.strictEqual(classifyQuery('island'), 'serp');
   assert.strictEqual(classifyQuery('history'), 'serp');
+  
+  // "whose" not followed by space (word boundary check)
+  assert.strictEqual(classifyQuery('whosever'), 'serp');
+  
+  // "whom" not followed by space
+  assert.strictEqual(classifyQuery('whomever'), 'serp');
+  
+  // "which" not followed by space
+  assert.strictEqual(classifyQuery('whichever'), 'serp');
+  
+  // "who" not followed by space
+  assert.strictEqual(classifyQuery('whoever'), 'serp');
+  assert.strictEqual(classifyQuery('whole'), 'serp');
+  
+  // "where" not followed by space
+  assert.strictEqual(classifyQuery('wherever'), 'serp');
+  
+  // Modal verbs mid-word
+  assert.strictEqual(classifyQuery('mustang'), 'serp');
+  assert.strictEqual(classifyQuery('marshal'), 'serp');
+  assert.strictEqual(classifyQuery('mayonnaise'), 'serp');
+  
+  // "are" mid-word
+  assert.strictEqual(classifyQuery('area'), 'serp');
+  assert.strictEqual(classifyQuery('software'), 'serp');
+  
+  // "was" mid-word
+  assert.strictEqual(classifyQuery('wasabi'), 'serp');
+  
+  // "have" mid-word
+  assert.strictEqual(classifyQuery('haven'), 'serp');
+  
+  // "has" mid-word
+  assert.strictEqual(classifyQuery('hash'), 'serp');
 });
 
 test('classifyQuery - Special characters', () => {
