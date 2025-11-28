@@ -59,8 +59,8 @@ test('classifyQuery - Question starters (is, if, can, etc.)', () => {
   assert.strictEqual(classifyQuery('shall we proceed with this approach'), 'ai');
 });
 
-test('classifyQuery - Command starters (summarize, explain, compare, etc.)', () => {
-  // Core command words
+test('classifyQuery - Command words (summarize, explain, compare, etc.)', () => {
+  // Core command words at the start
   assert.strictEqual(classifyQuery('summarize this article'), 'ai');
   assert.strictEqual(classifyQuery('Summarize the key points of quantum computing'), 'ai');
   assert.strictEqual(classifyQuery('explain how neural networks work'), 'ai');
@@ -68,7 +68,7 @@ test('classifyQuery - Command starters (summarize, explain, compare, etc.)', () 
   assert.strictEqual(classifyQuery('analyze the performance metrics'), 'ai');
   assert.strictEqual(classifyQuery('describe the main features'), 'ai');
   
-  // Additional command words
+  // Additional command words at the start
   assert.strictEqual(classifyQuery('evaluate this approach'), 'ai');
   assert.strictEqual(classifyQuery('calculate the total cost'), 'ai');
   assert.strictEqual(classifyQuery('define machine learning'), 'ai');
@@ -79,9 +79,15 @@ test('classifyQuery - Command starters (summarize, explain, compare, etc.)', () 
   assert.strictEqual(classifyQuery('elaborate on this concept'), 'ai');
   assert.strictEqual(classifyQuery('clarify the requirements'), 'ai');
   
-  // Should NOT trigger if not at the start
-  assert.strictEqual(classifyQuery('please summarize'), 'serp');
-  assert.strictEqual(classifyQuery('need to explain'), 'serp');
+  // Command words appearing mid-sentence (now triggers AI)
+  assert.strictEqual(classifyQuery('please summarize this for me'), 'ai');
+  assert.strictEqual(classifyQuery('I need you to explain this concept'), 'ai');
+  assert.strictEqual(classifyQuery('can you compare these options'), 'ai');
+  assert.strictEqual(classifyQuery('denmark just had election summarize the results'), 'ai');
+  assert.strictEqual(classifyQuery('latest ai news explain the impact'), 'ai');
+  assert.strictEqual(classifyQuery('python vs javascript compare performance'), 'ai');
+  assert.strictEqual(classifyQuery('quantum computing define the basics'), 'ai');
+  assert.strictEqual(classifyQuery('new framework review its features'), 'ai');
 });
 
 test('classifyQuery - Question mark', () => {
@@ -205,6 +211,15 @@ test('classifyQuery - Edge cases', () => {
   
   // "has" mid-word
   assert.strictEqual(classifyQuery('hash'), 'serp');
+  
+  // Command words as part of other words (should NOT trigger AI)
+  assert.strictEqual(classifyQuery('generated'), 'serp');
+  assert.strictEqual(classifyQuery('comparison'), 'serp');
+  assert.strictEqual(classifyQuery('explanatory'), 'serp');
+  assert.strictEqual(classifyQuery('calculator'), 'serp');
+  assert.strictEqual(classifyQuery('reviewer'), 'serp');
+  assert.strictEqual(classifyQuery('description'), 'serp');
+  assert.strictEqual(classifyQuery('analysis'), 'serp');
 });
 
 test('classifyQuery - Special characters', () => {

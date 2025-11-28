@@ -18,10 +18,10 @@ const QUESTION_STARTERS = [
 
 /**
  * Command words that indicate AI-appropriate tasks (analysis, synthesis, etc.)
- * These only trigger at the START of a query
+ * These are detected ANYWHERE in the query
  * Note: "translate" is intentionally excluded as users often prefer Google Translate
  */
-const COMMAND_STARTERS = [
+const COMMAND_WORDS = [
   'summarize', 'explain', 'compare', 'analyze', 'describe',
   'evaluate', 'calculate', 'define', 'review',
   'discuss', 'generate', 'critique', 'elaborate', 'clarify'
@@ -49,7 +49,7 @@ const QUESTION_WORD_COUNT_THRESHOLD = 10;
  * 1. Query contains W-words (who, what, where, when, why, how, which, whose, whom) anywhere
  * 2. Query starts with question words (is, are, was, were, if, can, could, should, would, 
  *    will, shall, do, does, did, has, have, had, may, might, must)
- * 3. Query starts with command words (summarize, explain, compare, analyze, describe, etc.)
+ * 3. Query contains command words (summarize, explain, compare, analyze, describe, etc.) anywhere
  * 4. Query contains "?"
  * 5. Query contains "," or ";" (indicates complex/multi-part query)
  * 6. Query has >= 10 words (longer queries typically questions)
@@ -66,6 +66,7 @@ const QUESTION_WORD_COUNT_THRESHOLD = 10;
  * classifyQuery("are these correct") // → 'ai'
  * classifyQuery("has anyone tried this") // → 'ai'
  * classifyQuery("summarize the key points of quantum computing") // → 'ai'
+ * classifyQuery("denmark just had election summarize the results") // → 'ai'
  * classifyQuery("lisbon flights are cheap but how long are they") // → 'ai'
  * classifyQuery("lisbon flights are cheap but are they long") // → 'ai'
  */
@@ -94,9 +95,11 @@ export function classifyQuery(query: string): SearchType {
     }
   }
 
-  // Rule 3: Check if starts with command words (summarize, explain, compare, etc.)
-  for (const commandWord of COMMAND_STARTERS) {
-    if (normalized.startsWith(commandWord + ' ')) {
+  // Rule 3: Check if contains command words anywhere (summarize, explain, compare, etc.)
+  for (const commandWord of COMMAND_WORDS) {
+    // Use word boundary to avoid false matches
+    const regex = new RegExp(`\\b${commandWord}\\b`);
+    if (regex.test(normalized)) {
       return 'ai';
     }
   }
