@@ -3,7 +3,7 @@ import type { SearchType } from './types.js';
 /**
  * W-words that indicate questions - detected ANYWHERE in the query
  */
-const W_WORDS = ['who', 'what', 'where', 'when', 'why', 'how'] as const;
+const W_WORDS = ['who', 'what', 'where', 'when', 'why', 'how', 'which'] as const;
 
 /**
  * Question starters that only trigger at the START of a query

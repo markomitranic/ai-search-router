@@ -8,15 +8,6 @@ alwaysApply: true
 
 Browser extension that routes searches to AI engines or traditional SERPs using fast, deterministic query classification (no ML/LLM).
 
-**What it does**
-
-- Classifies queries locally in <1ms
-- Sends questions/complex queries → AI search
-- Sends factual/navigation queries → traditional SERP
-- Users pick providers or use custom URLs (`{query}` placeholder)
-
-## Monorepo
-
 ```
 /
 ├─ packages/
@@ -29,81 +20,9 @@ Browser extension that routes searches to AI engines or traditional SERPs using 
 
 Managed with pnpm workspaces. Core is reused by extension; extension is reused by platforms.
 
-## Core Library (`packages/core`)
-
-- `classifyQuery(query: string): 'ai' | 'serp'`
-- Provider presets and URL helpers
-
-### Classification Rules (ANY → 'ai')
-
-1. Contains W-words anywhere: `who`, `what`, `where`, `when`, `why`, `how`
-2. Starts with question words: `is`, `if`, `can`, `could`, `should`, `would`, `will`, `do`, `does`, `did`
-3. Starts with command words: `summarize`, `explain`, `compare`, `analyze`, `describe`, `evaluate`, `calculate`, `define`, `review`, `discuss`, `generate`, `critique`, `elaborate`, `clarify`
-4. Contains `?`
-5. Contains `,` or `;` (multi-part/complex)
-6. Word count ≥ 10
-7. Has "but/and + question word" pattern (e.g., "but are", "and can")
-   Otherwise → `'serp'`
-
-### Providers
-
-AI:
-
-- Google AI Mode: `https://www.google.com/search?udm=50&q={query}`
-- Perplexity: `https://www.perplexity.ai/search?q={query}`
-- ChatGPT: `https://chat.openai.com/?q={query}`
-
-SERP:
-
-- Google: `https://www.google.com/search?q={query}`
-- Kagi: `https://kagi.com/search?q={query}`
-- Qwant: `https://www.qwant.com/?q={query}`
-- DuckDuckGo: `https://duckduckgo.com/?q={query}`
-
-Defaults: AI = Google AI Mode, SERP = Google
-Custom URLs supported (uses `{query}` substitution with URL-encoding).
-
 ## Extension (`packages/extension`)
 
 - MV3 service worker intercepts searches
 - Loads preferences from storage
 - Calls `@ai-search-router/core` for classification
 - Redirects to the selected provider URL
-
-Permissions: `storage`, `tabs`, `webNavigation` or `declarativeNetRequest`
-
-## Dev Workflow
-
-```bash
-pnpm install
-pnpm -r build     # build all
-pnpm -r dev       # watch mode
-pnpm -r test      # tests
-```
-
-Chromium build:
-
-```bash
-cd platforms/chromium
-pnpm build  # outputs to platforms/chromium/dist/
-```
-
-Load unpacked at `chrome://extensions` → Developer mode → Load unpacked → `platforms/chromium/dist/`
-
-## Testing
-
-- Core unit tests: `packages/core/src/*.test.ts`
-- Verify: common patterns, edge cases, URL formatting, perf (<1ms)
-- Manual extension checks: toggle works, provider persistence, custom URL usage, classification preview, redirection across entry points
-
-## Conventions
-
-- TypeScript strict; no `any`
-- `kebab-case` files, `PascalCase` types, `camelCase` vars
-- Absolute imports within packages; import core as `@ai-search-router/core`
-
-## Notes
-
-- Do not auto-start dev servers; check first
-- All logic is client-side; no backend
-- Preferences stored locally (not synced by default)

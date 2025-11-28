@@ -20,9 +20,9 @@
 		2E248BB12EC539F30090DF84 /* options in Resources */ = {isa = PBXBuildFile; fileRef = 2E248BAC2EC539F30090DF84 /* options */; };
 		2E248BB22EC539F30090DF84 /* popup in Resources */ = {isa = PBXBuildFile; fileRef = 2E248BAD2EC539F30090DF84 /* popup */; };
 		2E248BB32EC539F30090DF84 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 2E248BAE2EC539F30090DF84 /* background.js */; };
-		2E248BB62EC539F30090DF84 /* background.html in Resources */ = {isa = PBXBuildFile; fileRef = 2E248BC12EC539F30090DF84 /* background.html */; };
 		2E248BB42EC539F30090DF84 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 2E248BAF2EC539F30090DF84 /* icons */; };
 		2E248BB52EC539F30090DF84 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E248BB02EC539F30090DF84 /* manifest.json */; };
+		2E248BB62EC539F30090DF84 /* background.html in Resources */ = {isa = PBXBuildFile; fileRef = 2E248BC12EC539F30090DF84 /* background.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,9 +66,9 @@
 		2E248BAC2EC539F30090DF84 /* options */ = {isa = PBXFileReference; lastKnownFileType = folder; name = options; path = ../../../../dist/chromium/options; sourceTree = "<group>"; };
 		2E248BAD2EC539F30090DF84 /* popup */ = {isa = PBXFileReference; lastKnownFileType = folder; name = popup; path = ../../../../dist/chromium/popup; sourceTree = "<group>"; };
 		2E248BAE2EC539F30090DF84 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = ../../../../dist/chromium/background.js; sourceTree = "<group>"; };
-		2E248BC12EC539F30090DF84 /* background.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = background.html; path = ../../../../dist/chromium/background.html; sourceTree = "<group>"; };
 		2E248BAF2EC539F30090DF84 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = ../../../../dist/chromium/icons; sourceTree = "<group>"; };
 		2E248BB02EC539F30090DF84 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../../dist/chromium/manifest.json; sourceTree = "<group>"; };
+		2E248BC12EC539F30090DF84 /* background.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = background.html; path = ../../../../dist/chromium/background.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -459,10 +459,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -494,10 +497,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -536,11 +542,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -579,11 +588,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -11,6 +11,8 @@ test('classifyQuery - W-words anywhere in query', () => {
   assert.strictEqual(classifyQuery('when was python invented'), 'ai');
   assert.strictEqual(classifyQuery('why is the sky blue'), 'ai');
   assert.strictEqual(classifyQuery('who invented the telephone'), 'ai');
+  assert.strictEqual(classifyQuery('which previous software did the brave browser author make'), 'ai');
+  assert.strictEqual(classifyQuery('which is better'), 'ai');
   
   // Mid-sentence (should still trigger AI)
   assert.strictEqual(classifyQuery('tell me how to do this'), 'ai');
@@ -19,6 +21,7 @@ test('classifyQuery - W-words anywhere in query', () => {
   assert.strictEqual(classifyQuery('show me when to use this'), 'ai');
   assert.strictEqual(classifyQuery('describe why this works'), 'ai');
   assert.strictEqual(classifyQuery('someone who knows python'), 'ai'); // Changed from 'serp' - "who" is now detected
+  assert.strictEqual(classifyQuery('tell me which one is better'), 'ai');
 });
 
 test('classifyQuery - Question starters (is, if, can, etc.)', () => {
