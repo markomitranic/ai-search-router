@@ -4,14 +4,13 @@
   "description": "Browser extension for AI Search Router",
   "type": "module",
   "scripts": {
-    "build": "node build.js",
-    "dev": "node build.js --watch",
-    "clean": "rm -rf ../../dist"
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "lint": "tsc --noEmit"
   },
   "keywords": [
     "browser-extension",
-    "chrome-extension",
-    "safari-extension"
+    "chrome-extension"
   ],
   "author": "",
   "license": "MIT",
@@ -20,7 +19,8 @@
   },
   "devDependencies": {
     "@types/chrome": "^0.0.256",
-    "esbuild": "^0.19.11",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vite": "^5.4.0",
+    "vite-plugin-static-copy": "^2.2.0"
   }
 }

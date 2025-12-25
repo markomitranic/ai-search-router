@@ -1,34 +1,25 @@
 {
   "name": "ai-search-router",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Browser extension for intelligent search routing between AI and traditional search engines",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "build": "pnpm -r build",
-    "build:safari": "platforms/safari/build.sh",
-    "package": "pnpm package:chromium && pnpm package:safari",
-    "package:chromium": "platforms/chromium/package.sh",
-    "package:safari": "platforms/safari/package.sh",
-    "dev": "pnpm -r dev",
-    "test": "pnpm -r test",
-    "lint": "pnpm -r lint",
-    "clean": "pnpm -r clean"
+    "build": "bun run --filter '*' build",
+    "dev": "bun run --filter '*' dev",
+    "lint": "bun run --filter '*' lint"
   },
   "keywords": [
     "browser-extension",
     "search-router",
     "ai-search",
-    "chrome-extension",
-    "safari-extension"
+    "chrome-extension"
   ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "typescript": "^5.3.3"
-  },
-  "engines": {
-    "node": ">=18.0.0",
-    "pnpm": ">=8.0.0"
-  },
-  "packageManager": "pnpm@10.18.3+sha512.bbd16e6d7286fd7e01f6b3c0b3c932cda2965c06a908328f74663f10a9aea51f1129eea615134bf992831b009eabe167ecb7008b597f40ff9bc75946aadfb08d"
+  }
 }

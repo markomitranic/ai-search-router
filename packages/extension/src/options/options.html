@@ -25,6 +25,55 @@
       </header>
 
       <main>
+        <!-- Setup Guide Section -->
+        <section class="section setup-guide">
+          <h2>📋 Setup Guide</h2>
+          <p class="description">Set this extension as your default search provider for instant routing</p>
+
+          <div class="setup-steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <strong>Copy the search URL</strong>
+                <div class="url-box">
+                  <code id="search-url">chrome-extension://<span id="extension-id">loading...</span>/search.html?q=%s</code>
+                  <button id="copy-url-btn" class="copy-btn" title="Copy to clipboard">📋</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <strong>Open Chrome search settings</strong>
+                <p>Go to <a href="#" id="open-search-settings">chrome://settings/searchEngines</a> or click the button below</p>
+                <button id="open-settings-btn" class="step-btn">Open Search Settings</button>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <strong>Add a new search engine</strong>
+                <p>Click "Add" next to "Site search", then fill in:</p>
+                <ul class="step-list">
+                  <li><strong>Name:</strong> AI Search Router</li>
+                  <li><strong>Shortcut:</strong> @ai (or any keyword you prefer)</li>
+                  <li><strong>URL:</strong> Paste the URL from step 1</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <strong>Set as default (optional)</strong>
+                <p>Click the three dots next to your new search engine and select "Make default" for all searches to be routed automatically.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- AI Provider Section -->
         <section class="section">
           <h2>🤖 AI Search Provider</h2>
@@ -149,11 +198,10 @@
 
         <!-- Actions -->
         <div class="actions">
-          <button id="save-button" class="save-button">💾 Save Settings</button>
           <button id="reset-button" class="reset-button">🔄 Reset to Defaults</button>
         </div>
 
-        <div id="save-message" class="save-message hidden">✓ Settings saved successfully!</div>
+        <div id="save-message" class="save-message hidden">✓ Saved</div>
       </main>
 
       <footer>

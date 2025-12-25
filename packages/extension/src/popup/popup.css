@@ -35,7 +35,7 @@
 }
 
 body {
-  width: 320px;
+  width: 280px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   background: var(--crust);
   color: var(--text);
@@ -43,7 +43,6 @@ body {
 
 .container {
   background: var(--base);
-  min-height: 280px;
   display: flex;
   flex-direction: column;
 }
@@ -63,7 +62,6 @@ header h1 {
 
 main {
   padding: 14px;
-  flex: 1;
 }
 
 .status-section {
@@ -138,71 +136,19 @@ input:checked + .slider:before {
   background-color: var(--base);
 }
 
-/* Providers Section */
-.providers-section {
-  margin-bottom: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.provider-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  background: var(--surface0);
-  border-radius: 5px;
-  border: 1px solid var(--surface1);
-  transition: all 0.15s ease;
-}
-
-.provider-item:hover {
-  background: var(--surface1);
-  border-color: var(--surface2);
-}
-
-.provider-icon {
-  font-size: 20px;
-  flex-shrink: 0;
-}
-
-.provider-info {
-  flex: 1;
-  min-width: 0;
-}
-
-.provider-label {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--overlay1);
-  margin-bottom: 2px;
-  font-weight: 600;
-}
-
-.provider-name {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 /* Actions Section */
 .actions-section {
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
 .settings-button {
   width: 100%;
-  padding: 8px 12px;
+  padding: 10px 12px;
   background: var(--blue);
   color: var(--base);
   border: none;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -228,4 +174,3 @@ footer p {
   color: var(--subtext0);
   text-align: center;
 }
-

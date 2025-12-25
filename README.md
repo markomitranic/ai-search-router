@@ -42,42 +42,34 @@ When you perform a search, the extension analyzes your query and automatically d
 - 🤖 **Intelligent Classification**: Automatically detects if your query is a question or a simple search
 - 🔧 **Customizable Providers**: Choose your preferred AI and traditional search engines
 - 🎯 **Custom URLs**: Add your own search provider URLs
-- ⚡ **Fast & Lightweight**: Basic pattern matching for instant classification
-- 🌐 **Cross-Platform**: Works on Safari and Chromium browsers
+- ⚡ **Fast & Lightweight**: Instant local classification and redirect
+- 🚀 **Near-Zero Latency**: Uses custom search provider approach - no interception delays
 
-## Install on Safari (macOS)
+## Installation
 
-This build is not notarized. macOS will warn that the app is from an unidentified developer.
-Follow these steps once to approve it.
+### Chromium Browsers (Chrome, Edge, Brave)
 
-1. Download the latest DMG from the GitHub Releases page.
-2. Install the app by dragging it to Applications folder.
-3. Approve first launch (Gatekeeper) by right-clicking on the app and selecting "Open".
-4. Open Safari Settings → Extensions and enable "AI Search Router". (Always Allow on Every Website)
-
-## Install on Chromium browsers
-
-1. Download the latest ZIP from the GitHub Releases page.
-2. Unzip the file.
-3. Open Chrome → Extensions → Load Unpacked and select the unzipped folder.
-4. Enable "AI Search Router".
+1. Download and install the extension from the releases page (or build from source)
+2. Open the extension settings page
+3. Follow the setup guide to register the extension as a custom search provider
+4. Set it as your default search engine (optional)
 
 ## Development
 
 ### Setup
 
 ```bash
-# Install dependencies
-pnpm install
+# Install dependencies (using Bun)
+bun install
 
-# Build all packages
-pnpm build
-pnpm build:safari
-pnpm package
+# Build extension (outputs to dist/chromium/)
+bun run build
 
-# Run tests
-pnpm test
+# Watch mode for development
+bun run dev
 ```
+
+The built extension will be in `dist/chromium/` - you can load this directly as an unpacked extension in Chrome.
 
 ## How It Works
 
