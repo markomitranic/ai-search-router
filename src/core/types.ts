@@ -17,7 +17,6 @@ export interface SearchProvider {
  * User preferences for search routing
  */
 export interface UserPreferences {
-	enabled: boolean;
 	aiProvider: string;
 	serpProvider: string;
 	customAiUrl?: string;

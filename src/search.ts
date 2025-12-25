@@ -21,17 +21,9 @@ const DEFAULT_SERP = "google";
 	try {
 		const result = await chrome.storage.sync.get("preferences");
 		const prefs: UserPreferences = (result.preferences as UserPreferences) || {
-			enabled: true,
 			aiProvider: DEFAULT_AI,
 			serpProvider: DEFAULT_SERP,
 		};
-
-		if (!prefs.enabled) {
-			location.replace(
-				getSearchUrl(prefs.serpProvider, query, prefs.customSerpUrl),
-			);
-			return;
-		}
 
 		const type = classifyQuery(query);
 		const url =

@@ -7,10 +7,6 @@ import {
 } from "../core/index";
 
 // DOM elements - Main controls
-const enabledToggle = document.getElementById(
-	"enabled-toggle",
-) as HTMLInputElement;
-const statusText = document.getElementById("status-text") as HTMLSpanElement;
 const customAiUrl = document.getElementById(
 	"custom-ai-url",
 ) as HTMLInputElement;
@@ -112,14 +108,9 @@ async function loadPreferences(): Promise<void> {
 	try {
 		const result = await chrome.storage.sync.get("preferences");
 		const prefs: UserPreferences = (result.preferences as UserPreferences) || {
-			enabled: true,
 			aiProvider: DEFAULT_AI_PROVIDER,
 			serpProvider: DEFAULT_SERP_PROVIDER,
 		};
-
-		// Update toggle
-		enabledToggle.checked = prefs.enabled;
-		statusText.textContent = prefs.enabled ? "Enabled" : "Disabled";
 
 		// Handle custom AI provider
 		if (prefs.customAiUrl) {
@@ -150,13 +141,9 @@ async function savePreferences(): Promise<void> {
 	try {
 		const result = await chrome.storage.sync.get("preferences");
 		const prefs: UserPreferences = (result.preferences as UserPreferences) || {
-			enabled: true,
 			aiProvider: DEFAULT_AI_PROVIDER,
 			serpProvider: DEFAULT_SERP_PROVIDER,
 		};
-
-		// Preserve enabled state
-		prefs.enabled = enabledToggle.checked;
 
 		// Handle AI provider
 		if (selectedAiProvider === "custom") {
@@ -195,27 +182,6 @@ function debouncedSave(): void {
 	}, DEBOUNCE_DELAY);
 }
 
-/**
- * Save enabled/disabled state
- */
-async function saveEnabled(enabled: boolean): Promise<void> {
-	try {
-		const result = await chrome.storage.sync.get("preferences");
-		const prefs: UserPreferences = (result.preferences as UserPreferences) || {
-			enabled: true,
-			aiProvider: DEFAULT_AI_PROVIDER,
-			serpProvider: DEFAULT_SERP_PROVIDER,
-		};
-
-		prefs.enabled = enabled;
-		await chrome.storage.sync.set({ preferences: prefs });
-
-		statusText.textContent = enabled ? "Enabled" : "Disabled";
-		showSaveMessage();
-	} catch (error) {
-		console.error("Error saving enabled state:", error);
-	}
-}
 
 /**
  * Reset to defaults
@@ -227,7 +193,6 @@ async function resetToDefaults(): Promise<void> {
 
 	try {
 		const defaultPrefs: UserPreferences = {
-			enabled: true,
 			aiProvider: DEFAULT_AI_PROVIDER,
 			serpProvider: DEFAULT_SERP_PROVIDER,
 		};
@@ -367,10 +332,6 @@ function initSetupGuide(): void {
 }
 
 // Event listeners
-enabledToggle.addEventListener("change", () => {
-	saveEnabled(enabledToggle.checked);
-});
-
 resetButton.addEventListener("click", resetToDefaults);
 testButton.addEventListener("click", () => testClassification());
 

@@ -2,7 +2,6 @@
  * User preferences interface
  */
 interface UserPreferences {
-	enabled: boolean;
 	aiProvider: string;
 	serpProvider: string;
 	customAiUrl?: string;
@@ -13,7 +12,6 @@ interface UserPreferences {
  * Default user preferences
  */
 const DEFAULT_PREFERENCES: UserPreferences = {
-	enabled: true,
 	aiProvider: "google-ai",
 	serpProvider: "google",
 };
