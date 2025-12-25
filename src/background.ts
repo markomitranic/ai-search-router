@@ -71,7 +71,7 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
 /**
  * Initialize extension on install
  */
-chrome.runtime.onInstalled.addListener(async () => {
+chrome.runtime.onInstalled.addListener(async (details) => {
 	console.log("[AI Search Router] Extension installed");
 
 	// Set default preferences if not exists
@@ -82,6 +82,11 @@ chrome.runtime.onInstalled.addListener(async () => {
 
 	// Load into cache
 	await loadPreferencesIntoCache();
+
+	// Open options page on first install
+	if (details.reason === "install") {
+		chrome.runtime.openOptionsPage();
+	}
 
 	console.log(
 		"[AI Search Router] Ready - set as default search provider to use",
