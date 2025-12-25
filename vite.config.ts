@@ -11,7 +11,6 @@ export default defineConfig({
 			input: {
 				background: resolve(__dirname, "src/background.ts"),
 				search: resolve(__dirname, "src/search.ts"),
-				"popup/popup": resolve(__dirname, "src/popup/popup.ts"),
 				"options/options": resolve(__dirname, "src/options/options.ts"),
 			},
 			output: {
@@ -29,8 +28,6 @@ export default defineConfig({
 			targets: [
 				{ src: "manifest.json", dest: "." },
 				{ src: "src/search.html", dest: "." },
-				{ src: "src/popup/popup.html", dest: "popup" },
-				{ src: "src/popup/popup.css", dest: "popup" },
 				{ src: "src/options/options.html", dest: "options" },
 				{ src: "src/options/options.css", dest: "options" },
 				{ src: "icons", dest: "." },

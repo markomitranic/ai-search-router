@@ -88,6 +88,13 @@ chrome.runtime.onInstalled.addListener(async () => {
 	);
 });
 
+/**
+ * Open options page when extension icon is clicked
+ */
+chrome.action.onClicked.addListener(() => {
+	chrome.runtime.openOptionsPage();
+});
+
 // Load preferences into cache on service worker startup
 loadPreferencesIntoCache();
 
