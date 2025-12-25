@@ -59,7 +59,7 @@ When you perform a search, the extension analyzes your query and automatically d
 ### Setup
 
 ```bash
-# Install dependencies (using Bun)
+# Install dependencies
 bun install
 
 # Build extension (outputs to dist/chromium/)
@@ -67,9 +67,38 @@ bun run build
 
 # Watch mode for development
 bun run dev
+
+# Lint & format (using Biome)
+bun run lint          # Check for issues
+bun run lint:fix      # Auto-fix issues
+bun run format        # Format code
+
+# Type checking
+bun run typecheck
 ```
 
 The built extension will be in `dist/chromium/` - you can load this directly as an unpacked extension in Chrome.
+
+### Project Structure
+
+```
+/
+├─ src/
+│  ├─ core/              # Classification logic & provider config
+│  │  ├─ classifier.ts   # Query classification
+│  │  ├─ providers.ts    # Search provider definitions
+│  │  ├─ types.ts        # TypeScript types
+│  │  └─ index.ts        # Exports
+│  ├─ background.ts      # Service worker
+│  ├─ search.ts          # Search routing handler
+│  ├─ popup/             # Extension popup UI
+│  └─ options/           # Settings page
+├─ icons/                # Extension icons
+├─ manifest.json         # Extension manifest
+├─ package.json          # Dependencies
+├─ tsconfig.json         # TypeScript config
+└─ vite.config.ts        # Build config
+```
 
 ## How It Works
 
