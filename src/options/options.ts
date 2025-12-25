@@ -1,8 +1,6 @@
 import {
-	classifyQuery,
 	DEFAULT_AI_PROVIDER,
 	DEFAULT_SERP_PROVIDER,
-	getSearchUrl,
 	type UserPreferences,
 } from "../core/index";
 
@@ -19,14 +17,6 @@ const customAiGroup = document.getElementById(
 const customSerpGroup = document.getElementById(
 	"custom-serp-group",
 ) as HTMLDivElement;
-const testQuery = document.getElementById("test-query") as HTMLInputElement;
-const testButton = document.getElementById("test-button") as HTMLButtonElement;
-const testResult = document.getElementById("test-result") as HTMLDivElement;
-const resultType = document.getElementById("result-type") as HTMLDivElement;
-const resultUrl = document.getElementById("result-url") as HTMLDivElement;
-const resetButton = document.getElementById(
-	"reset-button",
-) as HTMLButtonElement;
 const saveMessage = document.getElementById("save-message") as HTMLDivElement;
 
 // DOM elements - Setup guide
@@ -184,77 +174,16 @@ function debouncedSave(): void {
 
 
 /**
- * Reset to defaults
- */
-async function resetToDefaults(): Promise<void> {
-	if (!confirm("Reset all settings to defaults?")) {
-		return;
-	}
-
-	try {
-		const defaultPrefs: UserPreferences = {
-			aiProvider: DEFAULT_AI_PROVIDER,
-			serpProvider: DEFAULT_SERP_PROVIDER,
-		};
-
-		await chrome.storage.sync.set({ preferences: defaultPrefs });
-		await loadPreferences();
-
-		showSaveMessage("✓ Reset to defaults");
-	} catch (error) {
-		console.error("Error resetting preferences:", error);
-		alert("Error resetting preferences. Please try again.");
-	}
-}
-
-/**
- * Test query classification
- */
-function testClassification(query?: string): void {
-	const testQueryValue = query || testQuery.value.trim();
-
-	if (!testQueryValue) {
-		alert("Please enter a test query");
-		return;
-	}
-
-	// Update test input if query was provided
-	if (query) {
-		testQuery.value = query;
-	}
-
-	const searchType = classifyQuery(testQueryValue);
-
-	const providerId =
-		searchType === "ai" ? selectedAiProvider : selectedSerpProvider;
-	const customUrl =
-		searchType === "ai" ? customAiUrl.value.trim() : customSerpUrl.value.trim();
-
-	// Use custom URL if "custom" is selected and URL is provided
-	const url =
-		providerId === "custom" && customUrl
-			? getSearchUrl(DEFAULT_AI_PROVIDER, testQueryValue, customUrl)
-			: getSearchUrl(providerId, testQueryValue, undefined);
-
-	resultType.textContent =
-		searchType === "ai" ? "🤖 AI Search" : "🔍 Traditional Search";
-
-	resultUrl.textContent = url;
-	testResult.classList.remove("hidden");
-
-	// Scroll to test results
-	testResult.scrollIntoView({ behavior: "smooth", block: "nearest" });
-}
-
-/**
- * Handle example query clicks
+ * Handle example query clicks - navigate to search page
  */
 function handleExampleClick(event: Event): void {
 	const target = event.target as HTMLElement;
 	const query = target.dataset.query;
 
 	if (query) {
-		testClassification(query);
+		const extensionId = chrome.runtime.id;
+		const searchUrl = `chrome-extension://${extensionId}/search.html?q=${encodeURIComponent(query)}`;
+		chrome.tabs.create({ url: searchUrl });
 	}
 }
 
@@ -332,9 +261,6 @@ function initSetupGuide(): void {
 }
 
 // Event listeners
-resetButton.addEventListener("click", resetToDefaults);
-testButton.addEventListener("click", () => testClassification());
-
 // Provider button clicks - auto-save
 const presetButtons = document.querySelectorAll(".preset-btn");
 presetButtons.forEach((btn) => {
@@ -345,17 +271,10 @@ presetButtons.forEach((btn) => {
 customAiUrl.addEventListener("input", debouncedSave);
 customSerpUrl.addEventListener("input", debouncedSave);
 
-// Example query clicks
+// Example query clicks - navigate to search page
 const exampleItems = document.querySelectorAll(".example-item");
 exampleItems.forEach((item) => {
 	item.addEventListener("click", handleExampleClick);
-});
-
-// Test on Enter key
-testQuery.addEventListener("keypress", (e) => {
-	if (e.key === "Enter") {
-		testClassification();
-	}
 });
 
 // Initialize

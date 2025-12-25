@@ -18,191 +18,183 @@
       </header>
 
       <main>
-        <!-- Setup Guide Section -->
-        <section class="section setup-guide">
-          <h2>📋 Setup Guide</h2>
-          <p class="description">Set this extension as your default search provider for instant routing</p>
+        <div class="content-grid">
+          <!-- Setup Guide Section -->
+          <aside class="setup-guide">
+            <h2>📋 Setup Guide</h2>
+            <p class="description">Set this extension as your default search provider for instant routing</p>
 
-          <div class="setup-steps">
-            <div class="step">
-              <div class="step-number">1</div>
-              <div class="step-content">
-                <strong>Copy the search URL</strong>
-                <div class="url-box">
-                  <code id="search-url">chrome-extension://<span id="extension-id">loading...</span>/search.html?q=%s</code>
-                  <button id="copy-url-btn" class="copy-btn" title="Copy to clipboard">📋</button>
+            <div class="setup-steps">
+              <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <strong>Copy the search URL</strong>
+                  <div class="url-box">
+                    <code id="search-url">chrome-extension://<span id="extension-id">loading...</span>/search.html?q=%s</code>
+                    <button id="copy-url-btn" class="copy-btn" title="Copy to clipboard">📋</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <strong>Open Chrome search settings</strong>
+                  <p>Go to <a href="#" id="open-search-settings">chrome://settings/searchEngines</a> or click the button below</p>
+                  <button id="open-settings-btn" class="step-btn">Open Search Settings</button>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <strong>Add a new search engine</strong>
+                  <p>Click "Add" next to "Site search", then fill in:</p>
+                  <ul class="step-list">
+                    <li><strong>Name:</strong> AI Search Router</li>
+                    <li><strong>Shortcut:</strong> @ai (or any keyword you prefer)</li>
+                    <li><strong>URL:</strong> Paste the URL from step 1</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <strong>Set as default</strong>
+                  <p>Click the three dots next to your new search engine and select "Make default" for all searches to be routed automatically.</p>
                 </div>
               </div>
             </div>
+          </aside>
 
-            <div class="step">
-              <div class="step-number">2</div>
-              <div class="step-content">
-                <strong>Open Chrome search settings</strong>
-                <p>Go to <a href="#" id="open-search-settings">chrome://settings/searchEngines</a> or click the button below</p>
-                <button id="open-settings-btn" class="step-btn">Open Search Settings</button>
+          <!-- Preferences Section -->
+          <div class="preferences">
+            <!-- SERP Provider Section -->
+            <section class="section">
+              <h2>🔍 Traditional Search Provider</h2>
+              <p class="description">Used for factual lookups and navigation queries</p>
+
+              <div class="provider-presets">
+                <button class="preset-btn" data-provider="google" data-type="serp">Google</button>
+                <button class="preset-btn" data-provider="kagi" data-type="serp">Kagi</button>
+                <button class="preset-btn" data-provider="qwant" data-type="serp">Qwant</button>
+                <button class="preset-btn" data-provider="duckduckgo" data-type="serp">
+                  DuckDuckGo
+                </button>
+                <button class="preset-btn" data-provider="custom" data-type="serp">Custom</button>
               </div>
-            </div>
 
-            <div class="step">
-              <div class="step-number">3</div>
-              <div class="step-content">
-                <strong>Add a new search engine</strong>
-                <p>Click "Add" next to "Site search", then fill in:</p>
-                <ul class="step-list">
-                  <li><strong>Name:</strong> AI Search Router</li>
-                  <li><strong>Shortcut:</strong> @ai (or any keyword you prefer)</li>
-                  <li><strong>URL:</strong> Paste the URL from step 1</li>
+              <div class="form-group hidden" id="custom-serp-group">
+                <label for="custom-serp-url">
+                  Custom URL:
+                  <span class="hint">Use {query} as placeholder</span>
+                </label>
+                <input
+                  type="text"
+                  id="custom-serp-url"
+                  class="text-input"
+                  placeholder="https://example.com/search?q={query}"
+                />
+              </div>
+
+              <div class="examples-section">
+                <div class="examples-label">Example queries:</div>
+                <ul class="examples-list">
+                  <li class="example-item" data-query="weather">weather</li>
+                  <li class="example-item" data-query="nearest pizza place">nearest pizza place</li>
+                  <li class="example-item" data-query="gaustablikk ski prices">gaustablikk ski pass prices</li>
+                  <li class="example-item" data-query="apple logo transparent">apple logo transparent</li>
+                  <li class="example-item" data-query="how much for a golden labubu">how much for a golden labubu</li>
+                  <li class="example-item" data-query="length of orinoco river">length of orinoco river</li>
+                  <li class="example-item" data-query="cheap geiger counter">cheap geiger counter</li>
+                  <li class="example-item" data-query="pino ingesting json multiline logs into grafana">
+                    pino ingesting json multiline logs into grafana
+                  </li>
                 </ul>
               </div>
-            </div>
+            </section>
 
-            <div class="step">
-              <div class="step-number">4</div>
-              <div class="step-content">
-                <strong>Set as default (optional)</strong>
-                <p>Click the three dots next to your new search engine and select "Make default" for all searches to be routed automatically.</p>
+            <!-- AI Provider Section -->
+            <section class="section">
+              <h2>🤖 AI Search Provider</h2>
+              <p class="description">Used for questions requiring reasoning and explanations</p>
+
+              <div class="provider-presets">
+                <button class="preset-btn" data-provider="google-ai" data-type="ai">
+                  Google AI Mode
+                </button>
+                <button class="preset-btn" data-provider="perplexity" data-type="ai">Perplexity</button>
+                <button class="preset-btn" data-provider="chatgpt" data-type="ai">ChatGPT</button>
+                <button class="preset-btn" data-provider="custom" data-type="ai">Custom</button>
               </div>
-            </div>
+
+              <div class="form-group hidden" id="custom-ai-group">
+                <label for="custom-ai-url">
+                  Custom URL:
+                  <span class="hint">Use {query} as placeholder</span>
+                </label>
+                <input
+                  type="text"
+                  id="custom-ai-url"
+                  class="text-input"
+                  placeholder="https://example.com/search?q={query}"
+                />
+              </div>
+
+              <div class="examples-section">
+                <div class="examples-label">Example queries:</div>
+                <ul class="examples-list">
+                  <li class="example-item" data-query="We are in an AI bubble, right?">
+                    We are in an AI bubble, right?
+                  </li>
+                  <li class="example-item" data-query="Is a cheap geiger counter worth it?">
+                    Is a cheap geiger counter worth it?
+                  </li>
+                  <li class="example-item" data-query="Locally produced kids gifts in denmark">
+                    Locally produced kids gifts in denmark
+                  </li>
+                  <li class="example-item" data-query="How old is the oldest tree on earth?">
+                    How old is the oldest tree on earth?
+                  </li>
+                  <li class="example-item" data-query="My dog is limping after a walk, but he seems fine when i offer a treat. Is he fucking with my head?">
+                    My dog is limping after a walk, but he seems fine when i offer a treat. Is he fucking with my head?
+                  </li>
+                  <li
+                    class="example-item"
+                    data-query="How to notice carbon monoxide without a detector? I am staying in an airbnb and idk if detector works or not."
+                  >
+                    How to notice carbon monoxide without a detector? I am staying in an airbnb and idk if detector works or not.
+                  </li>
+                  <li
+                    class="example-item"
+                    data-query="Search reddit to see if kagi is a good replacement for google"
+                  >
+                    Search reddit to see if kagi is a good replacement for google
+                  </li>
+                  <li class="example-item" data-query="I need materialized views in SQLite, how is it possible that its not built in?">
+                    I need materialized views in SQLite, how is it possible that its not built in?
+                  </li>
+                  <li
+                    class="example-item"
+                    data-query="In Genshin Impact how do I get the most primogems in a single day?"
+                  >
+                    In Genshin Impact how do I get the most primogems in a single day?
+                  </li>
+                  <li
+                    class="example-item"
+                    data-query="Is there a good Veritasium video on why the sky is blue?"
+                  >
+                    Is there a good Veritasium video on why the sky is blue?
+                  </li>
+                </ul>
+              </div>
+            </section>
           </div>
-        </section>
-
-        <!-- AI Provider Section -->
-        <section class="section">
-          <h2>🤖 AI Search Provider</h2>
-          <p class="description">Used for questions requiring reasoning and explanations</p>
-
-          <div class="provider-presets">
-            <button class="preset-btn" data-provider="google-ai" data-type="ai">
-              Google AI Mode
-            </button>
-            <button class="preset-btn" data-provider="perplexity" data-type="ai">Perplexity</button>
-            <button class="preset-btn" data-provider="chatgpt" data-type="ai">ChatGPT</button>
-            <button class="preset-btn" data-provider="custom" data-type="ai">Custom</button>
-          </div>
-
-          <div class="form-group hidden" id="custom-ai-group">
-            <label for="custom-ai-url">
-              Custom URL:
-              <span class="hint">Use {query} as placeholder</span>
-            </label>
-            <input
-              type="text"
-              id="custom-ai-url"
-              class="text-input"
-              placeholder="https://example.com/search?q={query}"
-            />
-          </div>
-
-          <div class="examples-section">
-            <div class="examples-label">Example queries:</div>
-            <ul class="examples-list">
-              <li
-                class="example-item"
-                data-query="In Genshin Impact how do I get the most primogems in a single day?"
-              >
-                In Genshin Impact how do I get the most primogems in a single day?
-              </li>
-              <li
-                class="example-item"
-                data-query="Search reddit to see if kagi is a good replacement for google"
-              >
-                Search reddit to see if kagi is a good replacement for google
-              </li>
-              <li
-                class="example-item"
-                data-query="Is there a good Veritasium video on why the sky is blue?"
-              >
-                Is there a good Veritasium video on why the sky is blue?
-              </li>
-              <li class="example-item" data-query="We are in an AI bubble, right?">
-                We are in an AI bubble, right?
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- SERP Provider Section -->
-        <section class="section">
-          <h2>🔍 Traditional Search Provider</h2>
-          <p class="description">Used for factual lookups and navigation queries</p>
-
-          <div class="provider-presets">
-            <button class="preset-btn" data-provider="google" data-type="serp">Google</button>
-            <button class="preset-btn" data-provider="kagi" data-type="serp">Kagi</button>
-            <button class="preset-btn" data-provider="qwant" data-type="serp">Qwant</button>
-            <button class="preset-btn" data-provider="duckduckgo" data-type="serp">
-              DuckDuckGo
-            </button>
-            <button class="preset-btn" data-provider="custom" data-type="serp">Custom</button>
-          </div>
-
-          <div class="form-group hidden" id="custom-serp-group">
-            <label for="custom-serp-url">
-              Custom URL:
-              <span class="hint">Use {query} as placeholder</span>
-            </label>
-            <input
-              type="text"
-              id="custom-serp-url"
-              class="text-input"
-              placeholder="https://example.com/search?q={query}"
-            />
-          </div>
-
-          <div class="examples-section">
-            <div class="examples-label">Example queries:</div>
-            <ul class="examples-list">
-              <li class="example-item" data-query="weather">weather</li>
-              <li class="example-item" data-query="apple logo">apple logo</li>
-              <li class="example-item" data-query="length of orinoco river">
-                length of orinoco river
-              </li>
-              <li class="example-item" data-query="pino ingesting json multiline logs into grafana">
-                pino ingesting json multiline logs into grafana
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- Test Section -->
-        <section class="section">
-          <h2>🧪 Test Classification</h2>
-          <p class="description">Try out the classifier with your own queries</p>
-
-          <div class="form-group">
-            <label for="test-query">Enter a test query:</label>
-            <input
-              type="text"
-              id="test-query"
-              class="text-input"
-              placeholder="how to learn programming"
-            />
-          </div>
-
-          <button id="test-button" class="test-button">Test Query</button>
-
-          <div id="test-result" class="test-result hidden">
-            <div class="result-label">Classification Result:</div>
-            <div id="result-type" class="result-type"></div>
-            <div id="result-url" class="result-url"></div>
-          </div>
-        </section>
-
-        <!-- Actions -->
-        <div class="actions">
-          <button id="reset-button" class="reset-button">🔄 Reset to Defaults</button>
         </div>
 
         <div id="save-message" class="save-message hidden">✓ Saved</div>
       </main>
-
-      <footer>
-        <p>
-          Questions (who/what/where/when/why/how, ?, length > 30) → AI Search<br />
-          Everything else → Traditional Search
-        </p>
-      </footer>
     </div>
 
     <script src="options.js" type="module"></script>
